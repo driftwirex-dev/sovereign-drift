@@ -30,22 +30,22 @@ nav{position:fixed;top:24px;left:0;right:0;z-index:7000;background:#050505;borde
 .pulse{width:5px;height:5px;background:var(--orange);border-radius:50%;display:inline-block;animation:pulseani 2s ease-in-out infinite;margin-right:8px;}
 @keyframes pulseani{0%,100%{opacity:1;}50%{opacity:0.15;}}
 
-/* YOUR DARK TACTICAL MAP — BADASS ORANGE DOMINATION */
-.map-hero{position:relative;height:100vh;margin-top:58px;background:linear-gradient(160deg,#0f1218,#1a1e24,#222a36,#0f1218);overflow:hidden;}
-.map-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(232,116,12,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,116,12,.04) 1px,transparent 1px);background-size:80px 80px;}
-.map-container{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+/* HERO WITH VIDEO BACKGROUND + OUR OVERLAYS */
+.map-hero{position:relative;height:100vh;margin-top:58px;overflow:hidden;}
+.map-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;}
+.map-container{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;}
 .map-inner{position:relative;width:100%;max-width:920px;height:78%;}
-.crosshair-v,.crosshair-h{position:absolute;pointer-events:none;}
+.crosshair-v,.crosshair-h{position:absolute;pointer-events:none;z-index:3;}
 .crosshair-v{left:50%;top:5%;bottom:5%;width:1px;background:linear-gradient(transparent,rgba(232,116,12,.6),rgba(232,116,12,.6),transparent);}
 .crosshair-h{top:55%;left:5%;right:5%;height:1px;border-top:1px dashed rgba(232,116,12,.3);}
-.reticle{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:64px;height:64px;}
+.reticle{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:64px;height:64px;z-index:3;}
 .reticle-ring,.reticle-ring-outer{position:absolute;inset:0;border:1px solid rgba(232,116,12,.55);border-radius:50%;}
 .reticle-ring-outer{inset:-12px;border-style:dashed;animation:rspin 20s linear infinite;}
 .reticle-ring{animation:rpulse 3s ease-in-out infinite;}
 .reticle-dot{position:absolute;top:50%;left:50%;width:6px;height:6px;background:var(--orange);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 18px rgba(232,116,12,.7);}
 @keyframes rpulse{0%,100%{opacity:.5;transform:scale(1);}50%{opacity:1;transform:scale(1.15);}}
 @keyframes rspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-.city{position:absolute;pointer-events:none;}
+.city{position:absolute;pointer-events:none;z-index:3;}
 .city-dot{width:14px;height:14px;border:1px solid rgba(232,116,12,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:6px;position:relative;}
 .city-dot::after{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;box-shadow:0 0 12px rgba(232,116,12,.8);}
 .city-dot-ring{position:absolute;inset:-8px;border:1px dashed rgba(232,116,12,.25);border-radius:50%;}
@@ -56,7 +56,7 @@ nav{position:fixed;top:24px;left:0;right:0;z-index:7000;background:#050505;borde
 .city-lincoln{top:22%;left:58%;}
 .city-roseville{top:48%;left:12%;}
 .city-rocklin{top:68%;left:62%;}
-.map-bar{position:absolute;bottom:0;left:0;right:0;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,18,24,.85);border-top:1px solid rgba(232,116,12,.2);}
+.map-bar{position:absolute;bottom:0;left:0;right:0;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,18,24,.85);border-top:1px solid rgba(232,116,12,.2);z-index:3;}
 .map-bar span{font-family:var(--mono);font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;}
 .map-bar .exposure{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:#E8740C;font-weight:500;}
 
@@ -87,8 +87,12 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
   </div>
 </header>
 
-<!-- HERO MAP — YOUR DRIFTMAPS OVERLAY -->
+<!-- HERO WITH SHORT VIDEO + OUR OVERLAYS -->
 <section class="map-hero">
+  <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;">
+    <source src="hero-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
   <div class="map-container">
     <div class="map-inner">
       <div class="crosshair-v"></div>
