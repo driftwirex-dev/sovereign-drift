@@ -6,7 +6,11 @@
 <title>Sovereign Drift // Classified Intelligence Infrastructure</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FAFAF7;--surface:#FFFFFF;--surface2:#F5F3EF;--border:#E8E4DD;--text-primary:#1a1a1a;--text-body:#3a3a3a;--text-muted:#B5B0A5;--orange:#E8740C;--crimson:#8B0000;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;}
+:root{
+  --bg:#FAFAF7;--surface:#FFFFFF;--surface2:#F5F3EF;--border:#E8E4DD;
+  --text-primary:#1a1a1a;--text-body:#3a3a3a;--text-muted:#B5B0A5;
+  --orange:#E8740C;--crimson:#8B0000;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
+}
 html,body{background:#050505;color:#fff;margin:0;padding:0;font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh;}
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -26,7 +30,7 @@ nav{position:fixed;top:24px;left:0;right:0;z-index:7000;background:#050505;borde
 .pulse{width:5px;height:5px;background:var(--orange);border-radius:50%;display:inline-block;animation:pulseani 2s ease-in-out infinite;margin-right:8px;}
 @keyframes pulseani{0%,100%{opacity:1;}50%{opacity:0.15;}}
 
-/* DARK TACTICAL MAP — YOUR FULL INSTRUMENT PANEL */
+/* YOUR DARK TACTICAL MAP — BADASS ORANGE DOMINATION */
 .map-hero{position:relative;height:100vh;margin-top:58px;background:linear-gradient(160deg,#0f1218,#1a1e24,#222a36,#0f1218);overflow:hidden;}
 .map-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(232,116,12,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,116,12,.04) 1px,transparent 1px);background-size:80px 80px;}
 .map-container{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
@@ -83,11 +87,28 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>THE PLACER COUNTY LIES THAT ARE DRAINING YOUR BANK ACCOUNT WHILE YOU SLEEP.</h1>
-  <p>If you think your "Gold Country" position is protected—you've already been stripped. You just haven't felt it yet.</p>
-  <div class="red-alert">IF YOU DON’T KNOW WHAT A CFD IS COSTING YOU PER DOOR—YOU’RE ALREADY UNDERWATER.</div>
+<!-- HERO MAP — YOUR DRIFTMAPS OVERLAY -->
+<section class="map-hero">
+  <div class="map-container">
+    <div class="map-inner">
+      <div class="crosshair-v"></div>
+      <div class="crosshair-h"></div>
+      <div class="reticle">
+        <div class="reticle-ring-outer"></div>
+        <div class="reticle-ring"></div>
+        <div class="reticle-dot"></div>
+      </div>
+      <div class="city city-lincoln"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">LINCOLN</div><div class="city-coord">38.8916°N · 121.2930°W</div><div class="city-status">// MONITORING</div><div class="city-threat">CFD STACKING ZONE</div></div>
+      <div class="city city-roseville"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">ROSEVILLE</div><div class="city-coord">38.7521°N · 121.3069°W</div><div class="city-status">// RETAIL DEFICIENT</div><div class="city-threat">RETAIL LAG VECTOR</div></div>
+      <div class="city city-rocklin"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">ROCKLIN</div><div class="city-coord">38.7907°N · 121.2358°W</div><div class="city-status">// COMPRESSING</div><div class="city-threat">UTILITY COMPRESSION NODE</div></div>
+    </div>
+  </div>
+  <div class="map-bar"><span>Most people estimate risk on 2024 data. We operate on 2026 Ground Truth.</span><span class="exposure">If you don’t know what a CFD is costing you per door—you’re already underwater.</span><span>38.8386°N · 121.2786°W — BENCHMARK CENTROID</span></div>
+</section>
+
+<!-- HERO COPY -->
+<section class="hero" style="padding:80px 50px;text-align:center;">
+  <h1>We locate the liabilities buried before the first tenant signs — before your model has time to lie to you.</h1>
 </section>
 
 <!-- MISSION -->
@@ -95,7 +116,6 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
   <h2>THE DISPUTE LIVES IN THE WALL.</h2>
   <div class="mission-copy body">
     <p>This is not a metaphor. It is a field observation. Every wall carries cost. Most operators just don’t know which ones are bleeding.</p>
-    <p><strong>We locate the liabilities buried before the first tenant signs — before your model has time to lie to you.</strong></p>
   </div>
 </section>
 
@@ -147,18 +167,30 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
   <p style="font-weight:bold;border-left:5px solid #fff;padding-left:20px;font-size:1.3rem;margin-bottom:40px;">
     “If you understand this feed, you’re already ahead. If you don’t—you’re exactly who it’s for.”
   </p>
-  <div class="intel-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
-    <div class="intel-card"><strong>SIGNAL 01: CFD STACKING // T1V</strong><p>Lincoln node. Titanium Monocrystal Verified. Mello-Roos layers compound silently.</p></div>
-    <div class="intel-card"><strong>SIGNAL 02: UTILITY DELTA // G23 (ELI)</strong><p>Rocklin node. Extra Low Interstitials. Grid past capacity.</p></div>
-    <div class="intel-card"><strong>SIGNAL 03: RETAIL LAG // T1V</strong><p>Roseville vector. Structural peak achieved.</p></div>
-    <div class="intel-card"><strong>SIGNAL 04: SOLAR ENCOMBRANCE // G23</strong><p>UCC-1 filings pulled. Solar stalker panels owned by third parties.</p></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
+    <div style="border:1px solid #333;padding:25px;background:#050505;">
+      <strong>SIGNAL 01: CFD STACKING // T1V</strong>
+      <p>Lincoln node. Titanium Monocrystal Verified. Mello-Roos layers compound silently.</p>
+    </div>
+    <div style="border:1px solid #333;padding:25px;background:#050505;">
+      <strong>SIGNAL 02: UTILITY DELTA // G23 (ELI)</strong>
+      <p>Rocklin node. Extra Low Interstitials. Grid past capacity.</p>
+    </div>
+    <div style="border:1px solid #333;padding:25px;background:#050505;">
+      <strong>SIGNAL 03: RETAIL LAG // T1V</strong>
+      <p>Roseville vector. Structural peak achieved.</p>
+    </div>
+    <div style="border:1px solid #333;padding:25px;background:#050505;">
+      <strong>SIGNAL 04: SOLAR ENCOMBRANCE // G23</strong>
+      <p>UCC-1 filings pulled. Solar stalker panels owned by third parties.</p>
+    </div>
   </div>
 </section>
 
 <!-- BENCHMARK 12 -->
 <section>
   <h2>Benchmark 12</h2>
-  <div class="benchmark-box">
+  <div style="background:#0a0a0a;padding:50px;border:1px solid #333;margin-top:50px;">
     <h3 style="font-size:2rem;margin-bottom:15px;">One-Time Lifetime Seat: $75,000</h3>
     <p style="font-size:1.1rem;">The correct price for a lifetime key to the only intelligence loop that matters. No renewals. No recurring noise.</p>
     <ul style="line-height:2.2;font-size:1.1rem;color:#aaa;margin-top:20px;">
@@ -173,15 +205,15 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
 <!-- INQUIRY -->
 <section style="background:#050505;">
   <h2 style="text-align:center;margin-bottom:40px;font-size:2.5rem;">Request Access</h2>
-  <div class="inquiry-form">
+  <div style="max-width:700px;margin:0 auto;background:#050505;padding:40px;border:1px solid #222;">
     <form onsubmit="handleSubmit(event)">
-      <label>FULL NAME / PRINCIPAL IDENTITY</label>
-      <input class="inquiry-field" type="text" placeholder="Identity Verification Required" required>
-      <label>LIQUIDITY POSITION (Self-Declare)</label>
-      <input class="inquiry-field" type="text" placeholder="Proof of Assets required post-inquiry" required>
-      <label style="color:#ff0000;font-weight:bold;">CURRENT PROJECT OR EXPOSURE (BE SPECIFIC)</label>
-      <textarea class="inquiry-field" rows="6" placeholder="Identify the objective or the exposure." required></textarea>
-      <button class="inquiry-btn" type="submit">TRANSMIT INQUIRY</button>
+      <label style="display:block;margin-bottom:5px;font-size:0.8rem;color:#888;text-transform:uppercase;">FULL NAME / PRINCIPAL IDENTITY</label>
+      <input style="width:100%;background:#000;border:1px solid #333;color:#fff;padding:15px;margin-bottom:25px;box-sizing:border-box;font-family:inherit;" type="text" placeholder="Identity Verification Required" required>
+      <label style="display:block;margin-bottom:5px;font-size:0.8rem;color:#888;text-transform:uppercase;">LIQUIDITY POSITION (Self-Declare)</label>
+      <input style="width:100%;background:#000;border:1px solid #333;color:#fff;padding:15px;margin-bottom:25px;box-sizing:border-box;font-family:inherit;" type="text" placeholder="Proof of Assets required post-inquiry" required>
+      <label style="display:block;margin-bottom:5px;font-size:0.8rem;color:#ff0000;font-weight:bold;text-transform:uppercase;">CURRENT PROJECT OR EXPOSURE (BE SPECIFIC)</label>
+      <textarea style="width:100%;background:#000;border:1px solid #333;color:#fff;padding:15px;margin-bottom:25px;box-sizing:border-box;font-family:inherit;height:120px;" placeholder="Identify the objective or the exposure." required></textarea>
+      <button style="background:#fff;color:#000;padding:20px 40px;border:none;font-weight:bold;cursor:pointer;text-transform:uppercase;width:100%;letter-spacing:3px;font-size:1rem;" type="submit">TRANSMIT INQUIRY</button>
     </form>
   </div>
 </section>
@@ -189,7 +221,7 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
 <footer style="padding:80px 50px;text-align:center;background:#000;">
   <div style="font-size:1.5rem;letter-spacing:8px;margin-bottom:30px;font-weight:bold;">SOVEREIGN DRIFT</div>
   <p style="letter-spacing:4px;font-size:1rem;color:#fff;text-transform:uppercase;margin-bottom:15px;font-weight:bold;">TITANIUM MONOCRYSTAL // G23 (ELI) STANDARD // T1V SIGNAL PEAK</p>
-  <div class="disclaimer" style="color:#444;font-size:0.75rem;max-width:800px;margin:20px auto;letter-spacing:1px;">
+  <div style="color:#444;font-size:0.75rem;max-width:800px;margin:20px auto;letter-spacing:1px;">
     DISTRIBUTION RESTRICTED TO BENCHMARK 12 PRINCIPALS ONLY. NOT ADVISORY. NOT PUBLIC. GROUND-TRUTH INTELLIGENCE ONLY.
   </div>
 </footer>
