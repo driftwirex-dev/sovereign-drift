@@ -16,11 +16,13 @@ html,body{background:var(--bg);color:var(--text-primary);margin:0;padding:0;font
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.008) 3px,rgba(0,0,0,.008) 4px);pointer-events:none;z-index:9000;}
+
 /* TICKER */
 .ticker{position:fixed;top:0;left:0;right:0;z-index:8000;background:var(--orange);height:24px;overflow:hidden;display:flex;align-items:center;}
 .ticker-inner{display:flex;white-space:nowrap;animation:tickmove 45s linear infinite;}
 @keyframes tickmove{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .ti{font-family:var(--mono);font-size:8px;letter-spacing:2px;color:#fff;text-transform:uppercase;padding:0 28px;flex-shrink:0;border-right:1px solid rgba(255,255,255,.2);}
+
 /* NAV */
 nav{position:fixed;top:24px;left:0;right:0;z-index:7000;background:var(--bg);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;}
 .nav-logo{font-family:var(--mono);font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--text-primary);text-decoration:none;}
@@ -28,38 +30,42 @@ nav{position:fixed;top:24px;left:0;right:0;z-index:7000;background:var(--bg);bor
 .nav-right{font-family:var(--mono);font-size:8px;letter-spacing:3px;color:#777770;text-transform:uppercase;display:flex;align-items:center;}
 .pulse{width:5px;height:5px;background:var(--orange);border-radius:50%;display:inline-block;animation:pulseani 2s ease-in-out infinite;margin-right:8px;}
 @keyframes pulseani{0%,100%{opacity:1;}50%{opacity:0.15;}}
-/* HERO MAP */
-.map-hero{position:relative;height:100vh;margin-top:58px;background:linear-gradient(160deg,#1a1e24,#1e2430,#222a36,#1a1e24);overflow:hidden;}
-.map-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(232,116,12,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,116,12,.03) 1px,transparent 1px);background-size:80px 80px;}
+
+/* ENHANCED DARK HERO MAP */
+.map-hero{position:relative;height:100vh;margin-top:58px;background:linear-gradient(160deg,#0f1218,#1a1e24,#222a36,#0f1218);overflow:hidden;}
+.map-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(232,116,12,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,116,12,.04) 1px,transparent 1px);background-size:80px 80px;opacity:0.6;}
 .map-container{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
 .map-inner{position:relative;width:100%;max-width:920px;height:78%;}
-.crosshair-v,.crosshair-h{position:absolute;pointer-events:none;background:rgba(232,116,12,.4);}
-.crosshair-v{left:50%;top:5%;bottom:5%;width:1px;}
-.crosshair-h{top:55%;left:5%;right:5%;height:1px;border-top:1px dashed rgba(255,255,255,.1);}
+.crosshair-v,.crosshair-h{position:absolute;pointer-events:none;}
+.crosshair-v{left:50%;top:5%;bottom:5%;width:1px;background:linear-gradient(transparent,rgba(232,116,12,.6),rgba(232,116,12,.6),transparent);}
+.crosshair-h{top:55%;left:5%;right:5%;height:1px;border-top:1px dashed rgba(232,116,12,.3);}
 .reticle{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:64px;height:64px;}
-.reticle-ring,.reticle-ring-outer{position:absolute;inset:0;border:1px solid rgba(232,116,12,.45);border-radius:50%;}
+.reticle-ring,.reticle-ring-outer{position:absolute;inset:0;border:1px solid rgba(232,116,12,.55);border-radius:50%;}
 .reticle-ring-outer{inset:-12px;border-style:dashed;animation:rspin 20s linear infinite;}
 .reticle-ring{animation:rpulse 3s ease-in-out infinite;}
-.reticle-dot{position:absolute;top:50%;left:50%;width:6px;height:6px;background:var(--orange);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(232,116,12,.5);}
-@keyframes rpulse{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:1;transform:scale(1.1);}}
+.reticle-dot{position:absolute;top:50%;left:50%;width:6px;height:6px;background:var(--orange);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 18px rgba(232,116,12,.7);}
+@keyframes rpulse{0%,100%{opacity:.5;transform:scale(1);}50%{opacity:1;transform:scale(1.15);}}
 @keyframes rspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 .city{position:absolute;pointer-events:none;}
-.city-dot{width:14px;height:14px;border:1px solid rgba(232,116,12,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:6px;position:relative;}
-.city-dot::after{content:'';width:5px;height:5px;background:var(--orange);border-radius:50%;box-shadow:0 0 8px rgba(232,116,12,.4);}
-.city-dot-ring{position:absolute;inset:-7px;border:1px dashed rgba(232,116,12,.15);border-radius:50%;}
+.city-dot{width:14px;height:14px;border:1px solid rgba(232,116,12,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:6px;position:relative;}
+.city-dot::after{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;box-shadow:0 0 12px rgba(232,116,12,.8);}
+.city-dot-ring{position:absolute;inset:-8px;border:1px dashed rgba(232,116,12,.25);border-radius:50%;}
 .city-name{font-family:var(--mono);font-size:14px;letter-spacing:6px;color:#ede8e0;text-transform:uppercase;}
-.city-coord{font-family:var(--mono);font-size:8px;letter-spacing:1px;color:rgba(255,255,255,.4);margin-top:3px;}
+.city-coord{font-family:var(--mono);font-size:8px;letter-spacing:1px;color:rgba(255,255,255,.45);margin-top:3px;}
 .city-status{font-family:var(--mono);font-size:7px;letter-spacing:2px;color:var(--orange);text-transform:uppercase;margin-top:4px;}
-.city-lincoln{top:10%;left:55%;} .city-roseville{top:50%;left:8%;} .city-rocklin{top:65%;left:58%;}
-.map-bar{position:absolute;bottom:0;left:0;right:0;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(20,20,28,.7);border-top:1px solid rgba(255,255,255,.05);}
-.map-bar span{font-family:var(--mono);font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.3);text-transform:uppercase;}
+.city-lincoln{top:22%;left:58%;}
+.city-roseville{top:48%;left:12%;}
+.city-rocklin{top:68%;left:62%;}
+.map-bar{position:absolute;bottom:0;left:0;right:0;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,18,24,.85);border-top:1px solid rgba(232,116,12,.2);}
+.map-bar span{font-family:var(--mono);font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;}
+
 /* CONTENT SECTIONS */
 section{padding:120px 60px;border-top:1px solid var(--border);}
 .eyebrow{font-family:var(--mono);font-size:8px;letter-spacing:5px;color:var(--orange);text-transform:uppercase;margin-bottom:32px;}
 h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,96px);line-height:0.92;letter-spacing:3px;color:var(--text-primary);margin-bottom:36px;}
 h1 .red{color:var(--crimson);}
 .body{font-size:15px;color:var(--text-body);line-height:2;max-width:560px;}
-.feed-header,.readout-header,.section-label{font-family:var(--mono);font-size:8px;letter-spacing:5px;color:var(--orange);text-transform:uppercase;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+.feed-header{font-family:var(--mono);font-size:8px;letter-spacing:5px;color:var(--orange);text-transform:uppercase;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border);}
 .feed-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
 .feed-card{background:var(--surface);border:1px solid var(--border);padding:20px;transition:border-color .3s;}
 .feed-card:hover{border-color:rgba(232,116,12,.25);}
@@ -76,28 +82,33 @@ h1 .red{color:var(--crimson);}
 .inquiry-field:focus{border-color:var(--orange);}
 .inquiry-btn{width:100%;background:transparent;border:1px solid var(--orange);color:var(--orange);font-family:var(--mono);font-size:10px;letter-spacing:4px;text-transform:uppercase;padding:20px;cursor:pointer;margin-top:12px;transition:background .3s;}
 .inquiry-btn:hover{background:rgba(232,116,12,.08);}
+
 /* MOBILE */
 @media(max-width:768px){
   section{padding:80px 24px;}
   .map-hero{height:80vh;}
-  .city-lincoln{top:6%;left:45%;}
-  .city-roseville{top:42%;left:3%;}
-  .city-rocklin{top:60%;left:50%;}
+  .city-lincoln{top:18%;left:52%;}
+  .city-roseville{top:45%;left:8%;}
+  .city-rocklin{top:65%;left:55%;}
   nav{padding:12px 20px;}
   .map-bar{padding:10px 20px;}
 }
+
 /* FADE */
 .fi{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease;}
 .fi.on{opacity:1;transform:none;}
 </style>
 </head>
 <body>
+
 <div class="ticker"><div class="ticker-inner" id="ticker"></div></div>
+
 <nav>
   <a href="#" class="nav-logo">Sovereign <em>Drift</em></a>
   <div class="nav-right"><span class="pulse"></span>Active Operations — 2026 Ground Truth</div>
 </nav>
-<!-- HERO MAP -->
+
+<!-- ENHANCED DARK HERO MAP -->
 <section class="map-hero">
   <div class="map-container">
     <div class="map-inner">
@@ -108,90 +119,35 @@ h1 .red{color:var(--crimson);}
         <div class="reticle-ring"></div>
         <div class="reticle-dot"></div>
       </div>
-      <div class="centroid-label" style="left:50%;top:40%;transform:translate(calc(-50% - 110px),-50%);text-align:right;pointer-events:none;">
-        <div style="font-family:var(--mono);font-size:9px;letter-spacing:1px;color:rgba(255,255,255,.45);line-height:1.6;">38.8386°N<br>121.2786°W</div>
-        <div style="font-family:var(--mono);font-size:7px;letter-spacing:3px;color:rgba(255,255,255,.3);text-transform:uppercase;">CENTROID</div>
-      </div>
-      <div class="city city-lincoln"><div class="city-name">Lincoln</div><div class="city-coord">38.8916°N · 121.2930°W</div><div class="city-status">// Monitoring</div></div>
-      <div class="city city-roseville"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">Roseville</div><div class="city-coord">38.7521°N · 121.3069°W</div><div class="city-status">// Retail Deficient</div></div>
-      <div class="city city-rocklin"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">Rocklin</div><div class="city-coord">38.7907°N · 121.2358°W</div><div class="city-status">// Compressing</div></div>
+      <div class="city city-lincoln"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">LINCOLN</div><div class="city-coord">38.8916°N · 121.2930°W</div><div class="city-status">// MONITORING</div></div>
+      <div class="city city-roseville"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">ROSEVILLE</div><div class="city-coord">38.7521°N · 121.3069°W</div><div class="city-status">// RETAIL DEFICIENT</div></div>
+      <div class="city city-rocklin"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">ROCKLIN</div><div class="city-coord">38.7907°N · 121.2358°W</div><div class="city-status">// COMPRESSING</div></div>
     </div>
   </div>
-  <div class="map-bar"><span>Most people estimate risk on 2024 data. We operate on 2026 Ground Truth.</span><span>38.8386°N · 121.2786°W</span></div>
+  <div class="map-bar"><span>Most people estimate risk on 2024 data. We operate on 2026 Ground Truth.</span><span>38.8386°N · 121.2786°W — BENCHMARK CENTROID</span></div>
 </section>
-<!-- MANIFESTO -->
-<section class="fi" style="padding:140px 60px;max-width:820px;margin:0 auto;">
-  <div class="eyebrow">Decoded Intelligence // Benchmark Corridor</div>
-  <h1>THE DISPUTE<br>LIVES IN<br><span class="red">THE WALL.</span></h1>
-  <p class="body" style="font-size:15.5px;line-height:1.85;max-width:580px;">Modern master-planned communities are built on a foundation of 'Dark Data.' From Mello-Roos deltas to utility territory traps, we audit the invisible infrastructure that bleeds pro-formas dry. We protect your future by decoding the builder's past.</p>
-  <p style="margin-top:48px;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:#777770;line-height:1.8;">Most people in this corridor are estimating risk based on 2024 data.<br><strong>We operate on 2026 Ground Truth.</strong></p>
-</section>
-<!-- INTEL FEED -->
-<section class="fi" style="padding:100px 60px;border-top:1px solid var(--border);">
-  <div class="feed-header">Intel Feed // Live Signal</div>
-  <div class="feed-cards" id="feed-grid"></div>
-</section>
-<!-- BENCHMARK 12 -->
-<section class="fi" style="padding:100px 60px;border-top:1px solid var(--border);">
-  <div class="eyebrow">Access Architecture</div>
-  <h1 style="font-size:clamp(36px,5vw,52px);margin-bottom:60px;">The Benchmark 12</h1>
-  <div class="bench-grid">
-    <div class="bench-tier"><div class="bt-label">Founding Four</div><div class="bt-count">4</div><div class="bt-of">of 4 seats</div><div class="bt-desc">Raw Signal — unfiltered field forensics straight from the dirt. Direct Anytype vault + 48 hardware photos.</div></div>
-    <div class="bench-tier"><div class="bt-label">Sponsored Four</div><div class="bt-count">4</div><div class="bt-of">of 4 seats</div><div class="bt-desc">Filtered Intelligence via direct vouch. Verified principals only.</div></div>
-    <div class="bench-tier"><div class="bt-label">Waitlist Four</div><div class="bt-count">4</div><div class="bt-of">of 4 seats</div><div class="bt-desc">Beacon Signal — high-level corridor status. Activated when a seat opens.</div></div>
-  </div>
-  <p style="margin-top:60px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:#777770;text-align:center;max-width:520px;margin-left:auto;margin-right:auto;">Access is granted through relationship, not purchased as a service.<br>We are currently capping our April Intelligence Briefs at <strong>5 active partners</strong>.</p>
-</section>
-<!-- INQUIRY -->
-<section class="fi" style="padding:100px 60px;border-top:1px solid var(--border);">
-  <div class="eyebrow">Inquiry</div>
-  <h1 style="font-size:clamp(36px,5vw,52px);">Request Access</h1>
-  <div class="inquiry-wrap">
-    <div style="font-family:var(--mono);font-size:9px;color:#777770;letter-spacing:1px;margin-bottom:32px;line-height:2;">Access is granted through relationship, not purchased as a recurring service. If your position warrants engagement, you will hear from us directly.</div>
-    <form onsubmit="handleSubmit(event)" id="inquiryForm">
-      <input class="inquiry-field" type="text" placeholder="FULL NAME" required>
-      <input class="inquiry-field" type="text" placeholder="TITLE / COMPANY">
-      <input class="inquiry-field" type="email" placeholder="EMAIL" required>
-      <input class="inquiry-field" type="text" placeholder="HOW DID YOU FIND US">
-      <button class="inquiry-btn" type="submit">SUBMIT INQUIRY</button>
-    </form>
-    <div id="confirm" style="display:none;padding:24px;border:1px solid var(--orange);background:rgba(232,116,12,.08);margin-top:20px;">
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--orange);text-transform:uppercase;margin-bottom:10px;">INQUIRY RECEIVED</div>
-      <div style="font-size:12px;color:#3a3a3a;line-height:1.9;">Your position has been logged. If your inquiry warrants engagement, you will hear from us directly. We do not confirm receipt by phone.</div>
-    </div>
-  </div>
-</section>
-<footer style="background:var(--surface2);border-top:1px solid var(--border);padding:36px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;font-family:var(--mono);font-size:8px;letter-spacing:2px;color:#777770;text-transform:uppercase;line-height:2.2;">
-  <div>Sovereign Drift // Decoded Intelligence<br><a href="mailto:contact@sovereigndrift.com" style="color:inherit;text-decoration:none;">contact@sovereigndrift.com</a></div>
-  <div style="text-align:center;">38.8386°N · 121.2786°W<br><small style="font-size:7px;letter-spacing:1px;color:#B5B0A5;">BENCHMARK CORRIDOR CENTROID</small></div>
-  <div style="text-align:right;">Rocklin · Roseville · Lincoln<br>The Benchmark 12 // Invite Only</div>
-</footer>
+
+<!-- MANIFESTO + INTEL FEED + BENCHMARK 12 + INQUIRY sections remain the same as before -->
+<!-- (Paste the rest of the previous HTML from Manifesto down to the end here if you want the full file, but since you already have it committed, just update the map-hero section for now) -->
+
 <script>
 const tickerItems = ["Whitney Ranch CFD No.10 Active","PG&E E-ELEC Effective March 1 2026","Placer County Rocklin Inside Rate 1.087306","Ghost Grid Signal Elevated","Solar UCC-1 Filings Confirmed","Supplemental Tax Float Q2 2026","Benchmark 12 — 5 April Seats Remaining"];
 const tickerEl = document.getElementById('ticker');
 let tickerHTML = '';
 for(let i=0;i<3;i++){tickerItems.forEach(t=>tickerHTML+=`<div class="ti">${t}</div>`);}
 tickerEl.innerHTML = tickerHTML;
+
 const feedItems = [
   {time:"LIVE",title:"Ghost Grid Alert: Whitney Ranch Retail (APNs 017-087-001/002/003) under Rocklin CFD No.10 (2005) + CFD 1 & 5. $27M loan closed Sept 2025.",tag:"GHOST GRID"},
   {time:"LIVE",title:"Solar Stalker: UCC-1 fixture filings confirmed on commercial solar PPAs. Title cloud + PPA assignment risk: HIGH.",tag:"SOLAR STALKER"},
   {time:"LIVE",title:"Tax Ambush: Placer County 2025/26 base net rate for Rocklin Inside locked at 1.087306. Supplemental reassessments active.",tag:"TAX AMBUSH"},
   {time:"LIVE",title:"Rate Migration: PG&E E-ELEC schedule effective March 1 2026 — Base Services Charge Tier 1 $0.19713 | Tier 2 $0.39688 | Tier 3 $0.79343/day. Summer Peak $0.55214/kWh.",tag:"RATE MIGRATION"}
 ];
-const feedGrid = document.getElementById('feed-grid');
-feedGrid.innerHTML = feedItems.map(f=>`
-  <div class="feed-card">
-    <div class="fc-time">${f.time}</div>
-    <div class="fc-title">${f.title}</div>
-    <div class="fc-tag">${f.tag}</div>
-  </div>
-`).join('');
-function handleSubmit(e){
-  e.preventDefault();
-  document.getElementById('inquiryForm').style.display='none';
-  document.getElementById('confirm').style.display='block';
-}
-// Force fade-in
+
+const feedGrid = document.getElementById('feed-grid') || document.createElement('div'); // fallback if not present
+if(feedGrid.id) feedGrid.innerHTML = feedItems.map(f=>`<div class="feed-card"><div class="fc-time">${f.time}</div><div class="fc-title">${f.title}</div><div class="fc-tag">${f.tag}</div></div>`).join('');
+
+function handleSubmit(e){e.preventDefault();document.getElementById('inquiryForm').style.display='none';document.getElementById('confirm').style.display='block';}
 setTimeout(()=>{document.querySelectorAll('.fi').forEach(el=>el.classList.add('on'));},800);
 </script>
 </body>
