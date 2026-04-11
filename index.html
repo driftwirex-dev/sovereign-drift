@@ -107,14 +107,14 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
 </section>
 
 <!-- HERO COPY -->
-<section class="hero" style="padding:80px 50px;text-align:center;">
+<section style="padding:80px 50px;text-align:center;">
   <h1>We locate the liabilities buried before the first tenant signs — before your model has time to lie to you.</h1>
 </section>
 
 <!-- MISSION -->
-<section class="mission">
+<section>
   <h2>THE DISPUTE LIVES IN THE WALL.</h2>
-  <div class="mission-copy body">
+  <div class="body" style="max-width:950px;">
     <p>This is not a metaphor. It is a field observation. Every wall carries cost. Most operators just don’t know which ones are bleeding.</p>
   </div>
 </section>
@@ -190,7 +190,7 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
 <!-- BENCHMARK 12 -->
 <section>
   <h2>Benchmark 12</h2>
-  <div style="background:#0a0a0a;padding:50px;border:1px solid #333;margin-top:50px;">
+  <div class="benchmark-box">
     <h3 style="font-size:2rem;margin-bottom:15px;">One-Time Lifetime Seat: $75,000</h3>
     <p style="font-size:1.1rem;">The correct price for a lifetime key to the only intelligence loop that matters. No renewals. No recurring noise.</p>
     <ul style="line-height:2.2;font-size:1.1rem;color:#aaa;margin-top:20px;">
@@ -205,15 +205,15 @@ th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
 <!-- INQUIRY -->
 <section style="background:#050505;">
   <h2 style="text-align:center;margin-bottom:40px;font-size:2.5rem;">Request Access</h2>
-  <div style="max-width:700px;margin:0 auto;background:#050505;padding:40px;border:1px solid #222;">
+  <div class="inquiry-form">
     <form onsubmit="handleSubmit(event)">
-      <label style="display:block;margin-bottom:5px;font-size:0.8rem;color:#888;text-transform:uppercase;">FULL NAME / PRINCIPAL IDENTITY</label>
-      <input style="width:100%;background:#000;border:1px solid #333;color:#fff;padding:15px;margin-bottom:25px;box-sizing:border-box;font-family:inherit;" type="text" placeholder="Identity Verification Required" required>
-      <label style="display:block;margin-bottom:5px;font-size:0.8rem;color:#888;text-transform:uppercase;">LIQUIDITY POSITION (Self-Declare)</label>
-      <input style="width:100%;background:#000;border:1px solid #333;color:#fff;padding:15px;margin-bottom:25px;box-sizing:border-box;font-family:inherit;" type="text" placeholder="Proof of Assets required post-inquiry" required>
-      <label style="display:block;margin-bottom:5px;font-size:0.8rem;color:#ff0000;font-weight:bold;text-transform:uppercase;">CURRENT PROJECT OR EXPOSURE (BE SPECIFIC)</label>
-      <textarea style="width:100%;background:#000;border:1px solid #333;color:#fff;padding:15px;margin-bottom:25px;box-sizing:border-box;font-family:inherit;height:120px;" placeholder="Identify the objective or the exposure." required></textarea>
-      <button style="background:#fff;color:#000;padding:20px 40px;border:none;font-weight:bold;cursor:pointer;text-transform:uppercase;width:100%;letter-spacing:3px;font-size:1rem;" type="submit">TRANSMIT INQUIRY</button>
+      <label>FULL NAME / PRINCIPAL IDENTITY</label>
+      <input class="inquiry-field" type="text" placeholder="Identity Verification Required" required>
+      <label>LIQUIDITY POSITION (Self-Declare)</label>
+      <input class="inquiry-field" type="text" placeholder="Proof of Assets required post-inquiry" required>
+      <label style="color:#ff0000;font-weight:bold;">CURRENT PROJECT OR EXPOSURE (BE SPECIFIC)</label>
+      <textarea class="inquiry-field" rows="6" placeholder="Identify the objective or the exposure." required></textarea>
+      <button class="inquiry-btn" type="submit">TRANSMIT INQUIRY</button>
     </form>
   </div>
 </section>
