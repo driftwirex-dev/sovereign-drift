@@ -3,235 +3,1671 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sovereign Drift // Classified Intelligence Infrastructure</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<title>SOVEREIGN DRIFT — INTELLIGENCE AGENCY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --bg:#FAFAF7;--surface:#FFFFFF;--surface2:#F5F3EF;--border:#E8E4DD;
-  --text-primary:#1a1a1a;--text-body:#3a3a3a;--text-muted:#B5B0A5;
-  --orange:#E8740C;--crimson:#8B0000;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
-}
-html,body{background:#050505;color:#fff;margin:0;padding:0;font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh;}
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(232,116,12,.008) 3px,rgba(232,116,12,.008) 4px);pointer-events:none;z-index:9000;}
+  :root {
+    --void: #0A0A0B;
+    --void-2: #0f0f10;
+    --void-3: #141416;
+    --bone: #F5F0E8;
+    --bone-dim: #a09a8e;
+    --bone-faint: #3a3832;
+    --amber: #C8922A;
+    --amber-hot: #E8A832;
+    --amber-dim: #6b4e16;
+    --amber-faint: #2a1f08;
+    --crimson: #8B1A1A;
+    --rule: rgba(200,146,42,0.18);
+    --rule-faint: rgba(245,240,232,0.06);
+  }
 
-/* TICKER */
-.ticker{position:fixed;top:0;left:0;right:0;z-index:8000;background:var(--orange);height:24px;overflow:hidden;display:flex;align-items:center;}
-.ticker-inner{display:flex;white-space:nowrap;animation:tickmove 35s linear infinite;}
-@keyframes tickmove{from{transform:translateX(0);}to{transform:translateX(-100%);}}
-.ti{font-family:var(--mono);font-size:8px;letter-spacing:2px;color:#fff;text-transform:uppercase;padding:0 28px;flex-shrink:0;border-right:1px solid rgba(255,255,255,.2);}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* NAV */
-nav{position:fixed;top:24px;left:0;right:0;z-index:7000;background:#050505;border-bottom:1px solid #333;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;}
-.nav-logo{font-family:var(--mono);font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#fff;text-decoration:none;}
-.nav-logo em{font-style:normal;color:var(--orange);}
-.nav-right{font-family:var(--mono);font-size:8px;letter-spacing:3px;color:#aaa;text-transform:uppercase;display:flex;align-items:center;}
-.pulse{width:5px;height:5px;background:var(--orange);border-radius:50%;display:inline-block;animation:pulseani 2s ease-in-out infinite;margin-right:8px;}
-@keyframes pulseani{0%,100%{opacity:1;}50%{opacity:0.15;}}
+  html { scroll-behavior: smooth; }
 
-/* HERO WITH VIDEO BACKGROUND + OUR OVERLAYS */
-.map-hero{position:relative;height:100vh;margin-top:58px;overflow:hidden;}
-.map-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;}
-.map-container{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;}
-.map-inner{position:relative;width:100%;max-width:920px;height:78%;}
-.crosshair-v,.crosshair-h{position:absolute;pointer-events:none;z-index:3;}
-.crosshair-v{left:50%;top:5%;bottom:5%;width:1px;background:linear-gradient(transparent,rgba(232,116,12,.6),rgba(232,116,12,.6),transparent);}
-.crosshair-h{top:55%;left:5%;right:5%;height:1px;border-top:1px dashed rgba(232,116,12,.3);}
-.reticle{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:64px;height:64px;z-index:3;}
-.reticle-ring,.reticle-ring-outer{position:absolute;inset:0;border:1px solid rgba(232,116,12,.55);border-radius:50%;}
-.reticle-ring-outer{inset:-12px;border-style:dashed;animation:rspin 20s linear infinite;}
-.reticle-ring{animation:rpulse 3s ease-in-out infinite;}
-.reticle-dot{position:absolute;top:50%;left:50%;width:6px;height:6px;background:var(--orange);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 18px rgba(232,116,12,.7);}
-@keyframes rpulse{0%,100%{opacity:.5;transform:scale(1);}50%{opacity:1;transform:scale(1.15);}}
-@keyframes rspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-.city{position:absolute;pointer-events:none;z-index:3;}
-.city-dot{width:14px;height:14px;border:1px solid rgba(232,116,12,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:6px;position:relative;}
-.city-dot::after{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;box-shadow:0 0 12px rgba(232,116,12,.8);}
-.city-dot-ring{position:absolute;inset:-8px;border:1px dashed rgba(232,116,12,.25);border-radius:50%;}
-.city-name{font-family:var(--mono);font-size:14px;letter-spacing:6px;color:#ede8e0;text-transform:uppercase;}
-.city-coord{font-family:var(--mono);font-size:8px;letter-spacing:1px;color:rgba(255,255,255,.45);margin-top:3px;}
-.city-status{font-family:var(--mono);font-size:7px;letter-spacing:2px;color:var(--orange);text-transform:uppercase;margin-top:4px;}
-.city-threat{font-family:var(--mono);font-size:7px;letter-spacing:2px;color:#E8740C;background:rgba(232,116,12,.1);padding:2px 8px;border-radius:2px;margin-top:4px;}
-.city-lincoln{top:22%;left:58%;}
-.city-roseville{top:48%;left:12%;}
-.city-rocklin{top:68%;left:62%;}
-.map-bar{position:absolute;bottom:0;left:0;right:0;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,18,24,.85);border-top:1px solid rgba(232,116,12,.2);z-index:3;}
-.map-bar span{font-family:var(--mono);font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;}
-.map-bar .exposure{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:#E8740C;font-weight:500;}
+  body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    cursor: crosshair;
+    overflow-x: hidden;
+  }
 
-/* CONTENT */
-section{padding:100px 50px;border-bottom:1px solid #1a1a1a;}
-h1,h2{font-family:'Bebas Neue',sans-serif;text-transform:uppercase;letter-spacing:3px;}
-.body{font-size:16px;color:#ccc;line-height:1.85;max-width:950px;}
-.red-alert{margin-top:30px;border:2px solid #ff0000;padding:20px;display:inline-block;color:#ff0000;font-weight:bold;font-size:1.1rem;}
-.table-container{overflow-x:auto;margin-top:40px;}
-table{width:100%;border-collapse:collapse;margin-bottom:50px;border:1px solid #333;font-size:0.95rem;}
-th,td{padding:15px;text-align:left;border:1px solid #222;}
-th{background:#111;color:#888;text-transform:uppercase;letter-spacing:1px;}
-.surface-character{color:#fff;font-weight:bold;}
-.benchmark-box{background:#0a0a0a;padding:50px;border:1px solid #333;margin-top:50px;}
-.inquiry-form{max-width:700px;margin:0 auto;background:#050505;padding:40px;border:1px solid #222;}
-.inquiry-field{width:100%;background:#000;border:1px solid #333;color:#fff;padding:15px;margin-bottom:25px;box-sizing:border-box;font-family:inherit;}
-.inquiry-btn{background:#fff;color:#000;padding:20px 40px;border:none;font-weight:bold;cursor:pointer;text-transform:uppercase;width:100%;letter-spacing:3px;font-size:1rem;}
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.028;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* SCAN LINE */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    animation: scanline 8s linear infinite;
+    opacity: 0.4;
+    z-index: 9998;
+    pointer-events: none;
+  }
+
+  @keyframes scanline {
+    0% { top: -2px; }
+    100% { top: 100vh; }
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    border-bottom: 1px solid var(--rule);
+    background: rgba(10,10,11,0.92);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-mark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    color: var(--bone);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-mark span {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--amber);
+    transform: rotate(45deg);
+    animation: pulse-diamond 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-diamond {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--amber);
+    transition: width 0.4s ease;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-access {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber-dim);
+    padding: 8px 18px;
+    background: transparent;
+    cursor: crosshair;
+    transition: all 0.3s;
+  }
+
+  .nav-access:hover {
+    background: var(--amber-faint);
+    border-color: var(--amber);
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    grid-template-rows: 1fr;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* TACTICAL MAP BG */
+  .hero-map {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(10,10,11,0.85) 0%, rgba(10,10,11,0.6) 40%, rgba(10,10,11,0.9) 100%),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(245,240,232,0.03) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(245,240,232,0.03) 40px);
+    background-size: cover, 40px 40px, 40px 40px;
+  }
+
+  /* Diagonal accent line */
+  .hero-map::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 380px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--amber), transparent);
+    opacity: 0.4;
+  }
+
+  /* Corner markers */
+  .hero-map::after {
+    content: '';
+    position: absolute;
+    bottom: 60px; left: 48px;
+    width: 60px; height: 60px;
+    border-left: 1px solid var(--amber);
+    border-bottom: 1px solid var(--amber);
+    opacity: 0.5;
+  }
+
+  .hero-main {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 48px 80px 48px;
+  }
+
+  .hero-classification {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 0.2s forwards;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-classification::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--amber);
+  }
+
+  .hero-h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 9vw, 130px);
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+    color: var(--bone);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 0.4s forwards;
+  }
+
+  .hero-h1 .drift {
+    color: var(--amber);
+    display: block;
+  }
+
+  .hero-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 0.6s forwards;
+  }
+
+  .hero-doctrine {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    max-width: 520px;
+    border-left: 2px solid var(--amber);
+    padding-left: 20px;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 0.8s forwards;
+  }
+
+  .hero-doctrine em {
+    color: var(--bone);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 1.0s forwards;
+  }
+
+  .btn-primary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--void);
+    background: var(--amber);
+    border: none;
+    padding: 14px 32px;
+    cursor: crosshair;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--amber-hot);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    background: transparent;
+    border: 1px solid var(--bone-faint);
+    padding: 14px 32px;
+    cursor: crosshair;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover {
+    color: var(--bone);
+    border-color: var(--bone-dim);
+  }
+
+  /* HERO RIGHT RAIL */
+  .hero-rail {
+    position: relative;
+    z-index: 2;
+    border-left: 1px solid var(--rule);
+    background: rgba(10,10,11,0.5);
+    padding: 100px 32px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.2s forwards;
+  }
+
+  .rail-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber-dim);
+    margin-bottom: 8px;
+  }
+
+  .rail-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--bone);
+    letter-spacing: 0.05em;
+  }
+
+  .rail-value.amber { color: var(--amber); }
+
+  .rail-block {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule-faint);
+  }
+
+  .rail-block:last-child { border-bottom: none; }
+
+  .rail-meta {
+    font-size: 10px;
+    color: var(--bone-faint);
+    margin-top: 4px;
+  }
+
+  .status-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+  }
+
+  .status-dot::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4CAF50;
+    box-shadow: 0 0 8px #4CAF50;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  .status-dot.amber::before { background: var(--amber); box-shadow: 0 0 8px var(--amber); }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .stamp {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 2px solid currentColor;
+    transform: rotate(-2deg);
+  }
+
+  .stamp.verified { color: var(--amber); }
+  .stamp.active { color: #4CAF50; }
+
+  /* ─── SECTION BASE ─── */
+  section {
+    padding: 120px 48px;
+    position: relative;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 64px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: 0.04em;
+    color: var(--bone);
+    line-height: 1;
+  }
+
+  .section-class {
+    margin-left: auto;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--bone-faint);
+    text-transform: uppercase;
+  }
+
+  /* ─── METHODOLOGY ─── */
+  #methodology {
+    background: var(--void-2);
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule-faint);
+    margin-bottom: 2px;
+  }
+
+  .method-card {
+    background: var(--void-2);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+
+  .method-card:hover {
+    background: var(--void-3);
+  }
+
+  .method-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--amber);
+    transition: height 0.5s ease;
+  }
+
+  .method-card:hover::before { height: 100%; }
+
+  .method-tier {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 4px;
+    opacity: 0.9;
+  }
+
+  .method-tier-sub {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bone-faint);
+    margin-bottom: 24px;
+  }
+
+  .method-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bone);
+    margin-bottom: 16px;
+  }
+
+  .method-desc {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    margin-bottom: 28px;
+  }
+
+  .method-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .method-points li {
+    font-size: 11px;
+    color: var(--bone-dim);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .method-points li::before {
+    content: '//';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  /* FULL WIDTH METHOD CARD */
+  .method-card.full {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* ─── VERIFICATION STACK ─── */
+  #verification {
+    background: var(--void);
+  }
+
+  .verify-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 80px;
+  }
+
+  .verify-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .verify-item {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 24px;
+    align-items: start;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule-faint);
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .verify-item:hover .verify-num { color: var(--amber); }
+  .verify-item:hover .verify-name { color: var(--bone); }
+
+  .verify-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--bone-faint);
+    line-height: 1;
+    transition: color 0.3s;
+  }
+
+  .verify-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    margin-bottom: 6px;
+    transition: color 0.3s;
+  }
+
+  .verify-desc {
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--bone-faint);
+  }
+
+  .verify-badge {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--amber-dim);
+    color: var(--amber);
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .verify-sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .sidebar-panel {
+    background: var(--void-2);
+    border: 1px solid var(--rule);
+    padding: 36px;
+    margin-bottom: 24px;
+  }
+
+  .sidebar-panel-title {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--amber-faint);
+  }
+
+  .sidebar-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule-faint);
+  }
+
+  .sidebar-metric:last-child { border-bottom: none; }
+
+  .metric-label {
+    font-size: 10px;
+    color: var(--bone-faint);
+    letter-spacing: 0.1em;
+  }
+
+  .metric-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--amber);
+  }
+
+  /* ─── CORRIDOR ─── */
+  #corridor {
+    background: var(--void-2);
+  }
+
+  .corridor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--rule-faint);
+  }
+
+  .corridor-card {
+    background: var(--void-2);
+    padding: 48px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+
+  .corridor-card:hover { background: var(--void-3); }
+
+  .corridor-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--amber);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+
+  .corridor-card:hover::after { transform: scaleX(1); }
+
+  .corridor-node {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--bone);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .corridor-coords {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    margin-bottom: 20px;
+  }
+
+  .corridor-desc {
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    margin-bottom: 24px;
+  }
+
+  .corridor-traps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .corridor-traps li {
+    font-size: 10px;
+    color: var(--bone-faint);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .corridor-traps li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-size: 8px;
+  }
+
+  /* ─── INTEL TYPES ─── */
+  #products {
+    background: var(--void);
+  }
+
+  .products-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 80px;
+  }
+
+  .products-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+
+  .prod-tab {
+    padding: 16px 20px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bone-faint);
+    cursor: crosshair;
+    border-left: 2px solid transparent;
+    transition: all 0.3s;
+    background: transparent;
+  }
+
+  .prod-tab:hover, .prod-tab.active {
+    color: var(--amber);
+    border-left-color: var(--amber);
+    background: var(--amber-faint);
+  }
+
+  .products-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .product-item {
+    background: var(--void-2);
+    padding: 48px 40px;
+    border-left: 3px solid transparent;
+    transition: all 0.4s;
+  }
+
+  .product-item:hover {
+    border-left-color: var(--amber);
+    background: var(--void-3);
+  }
+
+  .product-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .product-code {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+
+  .product-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bone);
+  }
+
+  .product-desc {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    margin-bottom: 24px;
+    max-width: 580px;
+  }
+
+  .product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--bone-faint);
+    color: var(--bone-faint);
+  }
+
+  .tag.hot {
+    border-color: var(--amber-dim);
+    color: var(--amber);
+  }
+
+  /* ─── OPERATIONAL LAW ─── */
+  #doctrine {
+    background: var(--void-2);
+  }
+
+  .doctrine-quote {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    text-align: center;
+    position: relative;
+    padding: 60px 40px;
+  }
+
+  .doctrine-quote::before,
+  .doctrine-quote::after {
+    content: '';
+    position: absolute;
+    width: 40px; height: 40px;
+  }
+
+  .doctrine-quote::before {
+    top: 0; left: 0;
+    border-top: 1px solid var(--amber);
+    border-left: 1px solid var(--amber);
+  }
+
+  .doctrine-quote::after {
+    bottom: 0; right: 0;
+    border-bottom: 1px solid var(--amber);
+    border-right: 1px solid var(--amber);
+  }
+
+  .doctrine-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--bone);
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+
+  .doctrine-text strong {
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  .doctrine-attribution {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bone-faint);
+  }
+
+  .doctrine-laws {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--rule-faint);
+  }
+
+  .law-card {
+    background: var(--void-2);
+    padding: 40px 32px;
+    transition: background 0.3s;
+  }
+
+  .law-card:hover { background: var(--void-3); }
+
+  .law-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: var(--amber-faint);
+    line-height: 0.8;
+    margin-bottom: 20px;
+  }
+
+  .law-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bone);
+    margin-bottom: 12px;
+  }
+
+  .law-body {
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--bone-faint);
+  }
+
+  /* ─── ACCESS ─── */
+  #access {
+    background: var(--void);
+    text-align: center;
+    padding: 140px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #access::before {
+    content: 'RESTRICTED';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 200px;
+    color: rgba(200,146,42,0.03);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .access-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 24px;
+  }
+
+  .access-h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 7vw, 96px);
+    line-height: 0.9;
+    color: var(--bone);
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+  }
+
+  .access-sub {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--bone-dim);
+    max-width: 560px;
+    margin: 0 auto 56px;
+  }
+
+  .access-form {
+    display: flex;
+    gap: 0;
+    max-width: 500px;
+    margin: 0 auto 24px;
+  }
+
+  .access-input {
+    flex: 1;
+    background: var(--void-2);
+    border: 1px solid var(--bone-faint);
+    border-right: none;
+    color: var(--bone);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    padding: 14px 20px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .access-input::placeholder { color: var(--bone-faint); }
+  .access-input:focus { border-color: var(--amber); }
+
+  .access-submit {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--amber);
+    color: var(--void);
+    border: none;
+    padding: 14px 28px;
+    cursor: crosshair;
+    transition: background 0.3s;
+    white-space: nowrap;
+  }
+
+  .access-submit:hover { background: var(--amber-hot); }
+
+  .access-caveat {
+    font-size: 10px;
+    color: var(--bone-faint);
+    letter-spacing: 0.1em;
+  }
+
+  .access-caveat span { color: var(--amber); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--void-2);
+  }
+
+  .footer-mark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    color: var(--bone-faint);
+  }
+
+  .footer-meta {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bone-faint);
+  }
+
+  .footer-class {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--amber-dim);
+    text-align: right;
+  }
+
+  /* ─── REDACTION HOVER ─── */
+  .redacted {
+    position: relative;
+    display: inline;
+    cursor: help;
+  }
+
+  .redacted::after {
+    content: '';
+    position: absolute;
+    inset: -1px -2px;
+    background: var(--bone);
+    transition: opacity 0.4s;
+    opacity: 1;
+  }
+
+  .redacted:hover::after { opacity: 0; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ─── TYPEWRITER ─── */
+  .typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--amber);
+    animation: typewriter 2.5s steps(30) 0.5s forwards, cursor-blink 0.8s step-end 3.5s infinite;
+    width: 0;
+  }
+
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% { border-right-color: var(--amber); }
+    50% { border-right-color: transparent; }
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--void); }
+  ::-webkit-scrollbar-thumb { background: var(--amber-dim); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--amber); }
+
+  /* ─── SELECTION ─── */
+  ::selection { background: var(--amber); color: var(--void); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-rail { display: none; }
+    section { padding: 80px 24px; }
+    .method-grid { grid-template-columns: 1fr; }
+    .method-card.full { grid-template-columns: 1fr; }
+    .corridor-grid { grid-template-columns: 1fr; }
+    .doctrine-laws { grid-template-columns: 1fr; }
+    .verify-layout { grid-template-columns: 1fr; }
+    .products-layout { grid-template-columns: 1fr; }
+    .products-nav { position: static; flex-direction: row; flex-wrap: wrap; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .access-form { flex-direction: column; }
+    .access-input { border-right: 1px solid var(--bone-faint); border-bottom: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- TICKER -->
-<header>
-  <div style="overflow:hidden;white-space:nowrap;">
-    <div class="ticker-text" style="display:inline-block;padding-left:100%;animation:tickmove 35s linear infinite;">
-      ACTIVE OPERATIONS: PLACER CORRIDOR // SIGNAL STATUS: T1V // PURITY: G23 (ELI) // BENCHMARK 12: RESTRICTED // NO DRIFT DETECTED
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-mark">
+    <span></span>
+    SOVEREIGN DRIFT
+  </a>
+  <ul class="nav-links">
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#verification">Verification</a></li>
+    <li><a href="#corridor">Corridor</a></li>
+    <li><a href="#products">Intelligence</a></li>
+    <li><a href="#doctrine">Doctrine</a></li>
+  </ul>
+  <button class="nav-access" onclick="document.getElementById('access').scrollIntoView({behavior:'smooth'})">Request Access</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-map"></div>
+
+  <div class="hero-main">
+    <div class="hero-classification">
+      CLASSIFICATION: RESTRICTED &nbsp;|&nbsp; PLACER CORRIDOR DIVISION &nbsp;|&nbsp; TM1V / G23
+    </div>
+
+    <h1 class="hero-h1">
+      SOVEREIGN
+      <span class="drift">DRIFT</span>
+    </h1>
+
+    <div class="hero-sub">Intelligence Agency &nbsp;·&nbsp; Forensic Real Estate &nbsp;·&nbsp; Placer County</div>
+
+    <p class="hero-doctrine">
+      The dispute lives in the wall. Every transaction in the Placer Corridor carries a concealed liability—<em>CFD stacking, utility compression, solar encumbrance.</em> We locate the bleed before it materializes in the pro forma. Anything less is noise.
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="#access" class="btn-primary" onclick="event.preventDefault();document.getElementById('access').scrollIntoView({behavior:'smooth'})">Request Access</a>
+      <a href="#methodology" class="btn-ghost" onclick="event.preventDefault();document.getElementById('methodology').scrollIntoView({behavior:'smooth'})">View Methodology</a>
     </div>
   </div>
-</header>
 
-<!-- HERO WITH SHORT VIDEO + OUR OVERLAYS -->
-<section class="map-hero">
-  <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;">
-    <source src="hero-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div class="map-container">
-    <div class="map-inner">
-      <div class="crosshair-v"></div>
-      <div class="crosshair-h"></div>
-      <div class="reticle">
-        <div class="reticle-ring-outer"></div>
-        <div class="reticle-ring"></div>
-        <div class="reticle-dot"></div>
+  <div class="hero-rail">
+    <div class="rail-block">
+      <div class="rail-label">Operational Status</div>
+      <div class="status-dot">Active — Corridor Online</div>
+    </div>
+    <div class="rail-block">
+      <div class="rail-label">Verification Standard</div>
+      <div class="rail-value amber">TM1V / G23</div>
+      <div class="rail-meta">Dual-layer protocol active</div>
+    </div>
+    <div class="rail-block">
+      <div class="rail-label">Coverage Zone</div>
+      <div class="rail-value" style="font-size:18px;">Roseville · Rocklin<br>Lincoln</div>
+      <div class="rail-meta">Placer County, CA</div>
+    </div>
+    <div class="rail-block">
+      <div class="rail-label">Trap Corridor Map</div>
+      <div class="rail-value">37+</div>
+      <div class="rail-meta">Verified liability vectors</div>
+    </div>
+    <div class="rail-block">
+      <div class="rail-label">Access Model</div>
+      <div style="margin-top:8px;"><span class="stamp verified">Relationship Only</span></div>
+    </div>
+    <div class="rail-block">
+      <div class="rail-label">Intelligence Grade</div>
+      <div style="margin-top:8px;"><span class="stamp active">Decision-Grade</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="methodology">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">THE PROTOCOL</h2>
+    <span class="section-class">TM1V / G23 DUAL-LAYER VERIFICATION</span>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card reveal">
+      <div class="method-tier">TM1V</div>
+      <div class="method-tier-sub">Titanium Monocrystal 1 Verified · Structural Peak</div>
+      <div class="method-name">Signal Integrity</div>
+      <p class="method-desc">In materials science, a monocrystal lacks grain boundaries where impurities gather. TM1V intelligence lacks the internal fracture points inherent in traditional market data. It proves the signal is <strong style="color:var(--bone)">real</strong>.</p>
+      <ul class="method-points">
+        <li>Boots on Ground — timestamped field verification</li>
+        <li>Chain of Custody — unbroken source lineage</li>
+        <li>Primary Source — county filing, not aggregator</li>
+        <li>Cross-Validation — minimum two independent vectors</li>
+        <li>Time Relevance — extraction date stamped and bounded</li>
+      </ul>
+    </div>
+
+    <div class="method-card reveal">
+      <div class="method-tier">G23</div>
+      <div class="method-tier-sub">Grade 23 Titanium ELI · Chemical Peak</div>
+      <div class="method-name">Signal Purity</div>
+      <p class="method-desc">Derived from Grade 23 Titanium (ELI). This standard demands removal of Extra Low Interstitials—microscopic impurities causing structural failure under stress. It proves the intelligence <strong style="color:var(--bone)">holds under pressure</strong>.</p>
+      <ul class="method-points">
+        <li>Broker Bias Stripped — no commission-aligned source contamination</li>
+        <li>Recency Gate — intelligence decays; temporal boundary enforced</li>
+        <li>Actionable Compression — refined to decision-ready Driftmap format</li>
+        <li>Noise Quarantine — sub-standard data classified and discarded</li>
+      </ul>
+    </div>
+
+    <div class="method-card full reveal">
+      <div>
+        <div class="method-tier" style="font-size:44px;">LAW III</div>
+        <div class="method-tier-sub">Operational Doctrine · The Forensic X-Ray</div>
+        <div class="method-name">The Dispute Lives In The Wall</div>
       </div>
-      <div class="city city-lincoln"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">LINCOLN</div><div class="city-coord">38.8916°N · 121.2930°W</div><div class="city-status">// MONITORING</div><div class="city-threat">CFD STACKING ZONE</div></div>
-      <div class="city city-roseville"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">ROSEVILLE</div><div class="city-coord">38.7521°N · 121.3069°W</div><div class="city-status">// RETAIL DEFICIENT</div><div class="city-threat">RETAIL LAG VECTOR</div></div>
-      <div class="city city-rocklin"><div class="city-dot"><div class="city-dot-ring"></div></div><div class="city-name">ROCKLIN</div><div class="city-coord">38.7907°N · 121.2358°W</div><div class="city-status">// COMPRESSING</div><div class="city-threat">UTILITY COMPRESSION NODE</div></div>
-    </div>
-  </div>
-  <div class="map-bar"><span>Most people estimate risk on 2024 data. We operate on 2026 Ground Truth.</span><span class="exposure">If you don’t know what a CFD is costing you per door—you’re already underwater.</span><span>38.8386°N · 121.2786°W — BENCHMARK CENTROID</span></div>
-</section>
-
-<!-- HERO COPY -->
-<section style="padding:80px 50px;text-align:center;">
-  <h1>We locate the liabilities buried before the first tenant signs — before your model has time to lie to you.</h1>
-</section>
-
-<!-- MISSION -->
-<section>
-  <h2>THE DISPUTE LIVES IN THE WALL.</h2>
-  <div class="body" style="max-width:950px;">
-    <p>This is not a metaphor. It is a field observation. Every wall carries cost. Most operators just don’t know which ones are bleeding.</p>
-  </div>
-</section>
-
-<!-- NEIGHBORHOOD REALITY CHECK -->
-<section id="reality-check">
-  <h2>GET IN WHERE YOU FIT IN: THE DOUBLE TRAP</h2>
-  <p class="body" style="max-width:850px;color:#aaa;margin-bottom:50px;font-size:1.1rem;">
-    When you’re financing a $750k+ home laced with CFD debt and solar stalkers, these tables are your pre-close reality check. Match the visible “surface zones” to your comfort level.
-  </p>
-
-  <div class="table-container">
-    <h3>ROCKLIN — CFD STACKING ZONE</h3>
-    <table>
-      <thead><tr><th>Race/Ethnicity</th><th>%</th><th>Approx. Population</th><th>Observed Surface Character (T1V)</th></tr></thead>
-      <tbody>
-        <tr><td>White (non-Hispanic)</td><td>61.5–64.4%</td><td>46,000–48,000</td><td>Dominant, suburban family zones</td></tr>
-        <tr><td>Asian (incl. South Asian)</td><td>11.6%</td><td>8,700</td><td class="surface-character">Noticeable South Asian / turban-visible pockets</td></tr>
-        <tr><td>Hispanic or Latino</td><td>16.0%</td><td>12,000</td><td>Growing presence in newer developments</td></tr>
-        <tr><td>Black / African American</td><td>1.5%</td><td>1,100</td><td>Light presence</td></tr>
-      </tbody>
-    </table>
-
-    <h3>ROSEVILLE — RETAIL LAG VECTOR</h3>
-    <table>
-      <thead><tr><th>Race/Ethnicity</th><th>%</th><th>Approx. Population</th><th>Observed Surface Character (T1V)</th></tr></thead>
-      <tbody>
-        <tr><td>White (non-Hispanic)</td><td>60.6–64.2%</td><td>99,000–105,000</td><td>Core suburban base</td></tr>
-        <tr><td>Asian (incl. South Asian)</td><td>13.1–13.3%</td><td>21,000–22,000</td><td class="surface-character">Heavy South Asian / turban-visible zones in parts</td></tr>
-        <tr><td>Hispanic or Latino</td><td>16.5%</td><td>27,000</td><td>Visible in retail/service areas</td></tr>
-        <tr><td>Black / African American</td><td>2.1%</td><td>3,400</td><td>Moderate presence in specific pockets</td></tr>
-      </tbody>
-    </table>
-
-    <h3>LINCOLN — UTILITY COMPRESSION NODE</h3>
-    <table>
-      <thead><tr><th>Race/Ethnicity</th><th>%</th><th>Approx. Population</th><th>Observed Surface Character (T1V)</th></tr></thead>
-      <tbody>
-        <tr><td>White (non-Hispanic)</td><td>62.2–67.3%</td><td>33,000–35,500</td><td>Strong majority in most neighborhoods</td></tr>
-        <tr><td>Hispanic or Latino</td><td>19.2%</td><td>10,200</td><td>Growing in newer subdivisions</td></tr>
-        <tr><td>Asian (incl. South Asian)</td><td>8.1%</td><td>4,300</td><td class="surface-character">Smaller but visible South Asian / turban-visible pockets</td></tr>
-        <tr><td>Black / African American</td><td>2.6%</td><td>1,400</td><td>Light but noticeable in some surface zones</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- INTEL FEED -->
-<section>
-  <p style="font-weight:bold;border-left:5px solid #fff;padding-left:20px;font-size:1.3rem;margin-bottom:40px;">
-    “If you understand this feed, you’re already ahead. If you don’t—you’re exactly who it’s for.”
-  </p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
-    <div style="border:1px solid #333;padding:25px;background:#050505;">
-      <strong>SIGNAL 01: CFD STACKING // T1V</strong>
-      <p>Lincoln node. Titanium Monocrystal Verified. Mello-Roos layers compound silently.</p>
-    </div>
-    <div style="border:1px solid #333;padding:25px;background:#050505;">
-      <strong>SIGNAL 02: UTILITY DELTA // G23 (ELI)</strong>
-      <p>Rocklin node. Extra Low Interstitials. Grid past capacity.</p>
-    </div>
-    <div style="border:1px solid #333;padding:25px;background:#050505;">
-      <strong>SIGNAL 03: RETAIL LAG // T1V</strong>
-      <p>Roseville vector. Structural peak achieved.</p>
-    </div>
-    <div style="border:1px solid #333;padding:25px;background:#050505;">
-      <strong>SIGNAL 04: SOLAR ENCOMBRANCE // G23</strong>
-      <p>UCC-1 filings pulled. Solar stalker panels owned by third parties.</p>
+      <div>
+        <p class="method-desc">This methodology functions as a forensic X-ray, seeing through the drywall of a transaction to expose the debt layers beneath. Every property in the Placer Corridor carries a concealed liability. The TM1V/G23 standard is the only mechanism capable of locating these bleeds before they materialize in a pro forma.</p>
+        <p class="method-desc">Within our infrastructure, anything less than this standard is classified as noise and immediately discarded. The Verification Ledger — a redacted appendix in every Forensic Audit — proves the work without surrendering the recipe.</p>
+        <div class="product-tags" style="margin-top:8px;">
+          <span class="tag hot">CFD Stacking</span>
+          <span class="tag hot">Utility Compression</span>
+          <span class="tag hot">Solar Encumbrance</span>
+          <span class="tag">HERO/PACE</span>
+          <span class="tag">Supplemental Tax Float</span>
+          <span class="tag">UCC Lien Architecture</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BENCHMARK 12 -->
-<section>
-  <h2>Benchmark 12</h2>
-  <div class="benchmark-box">
-    <h3 style="font-size:2rem;margin-bottom:15px;">One-Time Lifetime Seat: $75,000</h3>
-    <p style="font-size:1.1rem;">The correct price for a lifetime key to the only intelligence loop that matters. No renewals. No recurring noise.</p>
-    <ul style="line-height:2.2;font-size:1.1rem;color:#aaa;margin-top:20px;">
-      <li>Lifetime Access to T1V / G23 Raw Signal and custom Driftmaps</li>
-      <li>Quarterly Insider Meetings (Gladiator-style data pulls)</li>
-      <li>Private Slack group for real-time intelligence</li>
-    </ul>
-    <p style="margin-top:40px;border-top:1px solid #333;padding-top:20px;font-weight:bold;"><strong>There will never be a 13th seat.</strong> Access is granted through relationship and fit, not purchased as a service.</p>
+<!-- VERIFICATION STACK -->
+<section id="verification">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">VERIFICATION STACK</h2>
+    <span class="section-class">5-POINT TM1V CRITERIA</span>
+  </div>
+
+  <div class="verify-layout">
+    <div class="verify-stack">
+
+      <div class="verify-item reveal">
+        <div class="verify-num">01</div>
+        <div>
+          <div class="verify-name">Boots on Ground</div>
+          <div class="verify-desc">Physical presence at the asset. Timestamped, geolocated photography of utility infrastructure, meter markings, and site conditions. Cannot be replicated by aggregator data.</div>
+        </div>
+        <div class="verify-badge">Field Required</div>
+      </div>
+
+      <div class="verify-item reveal">
+        <div class="verify-num">02</div>
+        <div>
+          <div class="verify-name">Chain of Custody</div>
+          <div class="verify-desc">Unbroken lineage from extraction point to deliverable. Every data point traces to a primary source, statutory citation, or contract document. No orphaned claims.</div>
+        </div>
+        <div class="verify-badge">Zero Gaps</div>
+      </div>
+
+      <div class="verify-item reveal">
+        <div class="verify-num">03</div>
+        <div>
+          <div class="verify-name">Primary Source</div>
+          <div class="verify-desc">County CFD filing, Willdan Financial levy schedule, Goodwin Consulting report — not aggregator output. The redacted screenshot is the proof. The number is the weapon.</div>
+        </div>
+        <div class="verify-badge">Original Doc</div>
+      </div>
+
+      <div class="verify-item reveal">
+        <div class="verify-num">04</div>
+        <div>
+          <div class="verify-name">Cross-Validation</div>
+          <div class="verify-desc">Minimum two independent vectors confirm the same liability. Single-source findings are classified as Intelligence Gap — not deployed until corroborated.</div>
+        </div>
+        <div class="verify-badge">Dual Vector</div>
+      </div>
+
+      <div class="verify-item reveal">
+        <div class="verify-num">05</div>
+        <div>
+          <div class="verify-name">Time Relevance</div>
+          <div class="verify-desc">Extraction date stamped and bounded. Municipal environments are dynamic. Intelligence is TM1V verified at Time = X. The Temporal Boundary is not a disclaimer — it is a design feature.</div>
+        </div>
+        <div class="verify-badge">Time-Locked</div>
+      </div>
+
+    </div>
+
+    <div class="verify-sidebar">
+      <div class="sidebar-panel reveal">
+        <div class="sidebar-panel-title">Intelligence Tiers</div>
+        <div class="sidebar-metric">
+          <span class="metric-label">Verified</span>
+          <span class="metric-value">TM1V</span>
+        </div>
+        <div class="sidebar-metric">
+          <span class="metric-label">Qualified</span>
+          <span class="metric-value" style="color:var(--bone-dim);">QV2</span>
+        </div>
+        <div class="sidebar-metric">
+          <span class="metric-label">Intelligence Gap</span>
+          <span class="metric-value" style="color:var(--crimson);">IG–</span>
+        </div>
+      </div>
+
+      <div class="sidebar-panel reveal">
+        <div class="sidebar-panel-title">Corridor Coverage</div>
+        <div class="sidebar-metric">
+          <span class="metric-label">Trap Vectors Mapped</span>
+          <span class="metric-value">37+</span>
+        </div>
+        <div class="sidebar-metric">
+          <span class="metric-label">CFD Districts</span>
+          <span class="metric-value">12</span>
+        </div>
+        <div class="sidebar-metric">
+          <span class="metric-label">Solar UCC Flags</span>
+          <span class="metric-value">Active</span>
+        </div>
+        <div class="sidebar-metric">
+          <span class="metric-label">Min. Threshold</span>
+          <span class="metric-value" style="font-size:14px;">$750K+</span>
+        </div>
+      </div>
+
+      <div class="sidebar-panel reveal">
+        <div class="sidebar-panel-title">Anti-Hallucination Protocol</div>
+        <p style="font-size:11px;line-height:1.8;color:var(--bone-faint);">Every claim traces to a primary source, statutory citation, or contract document. No estimate. No inference presented as fact. Ambiguity is flagged as an <span style="color:var(--amber)">Intelligence Gap</span>, never papered over.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- INQUIRY -->
-<section style="background:#050505;">
-  <h2 style="text-align:center;margin-bottom:40px;font-size:2.5rem;">Request Access</h2>
-  <div class="inquiry-form">
-    <form onsubmit="handleSubmit(event)">
-      <label>FULL NAME / PRINCIPAL IDENTITY</label>
-      <input class="inquiry-field" type="text" placeholder="Identity Verification Required" required>
-      <label>LIQUIDITY POSITION (Self-Declare)</label>
-      <input class="inquiry-field" type="text" placeholder="Proof of Assets required post-inquiry" required>
-      <label style="color:#ff0000;font-weight:bold;">CURRENT PROJECT OR EXPOSURE (BE SPECIFIC)</label>
-      <textarea class="inquiry-field" rows="6" placeholder="Identify the objective or the exposure." required></textarea>
-      <button class="inquiry-btn" type="submit">TRANSMIT INQUIRY</button>
-    </form>
+<!-- CORRIDOR -->
+<section id="corridor">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">THE CORRIDOR</h2>
+    <span class="section-class">PLACER COUNTY OPERATIONAL ZONE</span>
+  </div>
+
+  <div class="corridor-grid">
+    <div class="corridor-card reveal">
+      <div class="corridor-node">ROSEVILLE</div>
+      <div class="corridor-coords">38.7521° N, 121.2880° W</div>
+      <p class="corridor-desc">Primary operational node. Roseville Electric territory creates a bifurcated utility reality — rate structures diverge sharply from PG&E at city limits. Solar lease architecture is dense and routinely unannounced.</p>
+      <ul class="corridor-traps">
+        <li>Roseville Electric / PG&E boundary conflicts</li>
+        <li>CFD 1, CFD 2, CFD 5 stacking zones</li>
+        <li>Sunrun / SunPower lease concentration</li>
+        <li>NM-1 interconnection exposure</li>
+        <li>Supplemental tax float — new construction</li>
+      </ul>
+    </div>
+
+    <div class="corridor-card reveal">
+      <div class="corridor-node">ROCKLIN</div>
+      <div class="corridor-coords">38.7907° N, 121.2354° W</div>
+      <p class="corridor-desc">High-velocity development corridor. Whitney Ranch and Stanford Ranch carry layered CFD obligations invisible to standard title review. Commercial infrastructure signals embedded in residential parcels.</p>
+      <ul class="corridor-traps">
+        <li>CFD 10 ledger discrepancies — active</li>
+        <li>Whitney Ranch Retail Center — 480V exposure</li>
+        <li>Stanford Ranch road assessment stacks</li>
+        <li>HERO/PACE encumbrance density</li>
+        <li>Zoning transition liability — mixed-use edges</li>
+      </ul>
+    </div>
+
+    <div class="corridor-card reveal">
+      <div class="corridor-node">LINCOLN</div>
+      <div class="corridor-coords">38.8916° N, 121.2932° W</div>
+      <p class="corridor-desc">Emerging node. Sun City and Lincoln Crossing carry Mello-Roos obligations that persist beyond buyer awareness cycles. Infrastructure development lags create unannounced assessment risk.</p>
+      <ul class="corridor-traps">
+        <li>Sun City Lincoln Hills CFD obligations</li>
+        <li>Lincoln Crossing assessment stack</li>
+        <li>Agricultural boundary liability</li>
+        <li>Infrastructure gap assessments — future levy risk</li>
+        <li>Solar penetration — lease vs. owned ambiguity</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<footer style="padding:80px 50px;text-align:center;background:#000;">
-  <div style="font-size:1.5rem;letter-spacing:8px;margin-bottom:30px;font-weight:bold;">SOVEREIGN DRIFT</div>
-  <p style="letter-spacing:4px;font-size:1rem;color:#fff;text-transform:uppercase;margin-bottom:15px;font-weight:bold;">TITANIUM MONOCRYSTAL // G23 (ELI) STANDARD // T1V SIGNAL PEAK</p>
-  <div style="color:#444;font-size:0.75rem;max-width:800px;margin:20px auto;letter-spacing:1px;">
-    DISTRIBUTION RESTRICTED TO BENCHMARK 12 PRINCIPALS ONLY. NOT ADVISORY. NOT PUBLIC. GROUND-TRUTH INTELLIGENCE ONLY.
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">INTELLIGENCE PRODUCTS</h2>
+    <span class="section-class">CLOSED ACCESS — RELATIONSHIP GRANTED</span>
+  </div>
+
+  <div class="products-layout">
+    <div class="products-nav reveal">
+      <div class="prod-tab active">Dark Data Brief</div>
+      <div class="prod-tab">Forensic Audit</div>
+      <div class="prod-tab">Driftmap</div>
+      <div class="prod-tab">Benchmark Brief</div>
+    </div>
+
+    <div class="products-content">
+
+      <div class="product-item reveal">
+        <div class="product-header">
+          <span class="product-code">DD-01</span>
+          <span class="product-name">Dark Data Brief</span>
+        </div>
+        <p class="product-desc">The flagship intelligence deliverable. A forensic synthesis of hidden liability vectors for a single property or transaction — CFD stacking, utility compression, solar encumbrance, supplemental tax float. Every claim TM1V or G23 verified. Structured as a client-facing shield: the broker uses your intelligence to win the deal.</p>
+        <div class="product-tags">
+          <span class="tag hot">TM1V Verified</span>
+          <span class="tag hot">G23 Purity</span>
+          <span class="tag">Verification Ledger</span>
+          <span class="tag">Temporal Boundary</span>
+          <span class="tag">$750K+ Threshold</span>
+        </div>
+      </div>
+
+      <div class="product-item reveal">
+        <div class="product-header">
+          <span class="product-code">FA-02</span>
+          <span class="product-name">Forensic Audit</span>
+        </div>
+        <p class="product-desc">Bespoke deep-penetration analysis. Boots on ground required. Geolocated field photography, redacted primary source appendix, full five-point verification stack executed. Reserved for high-stakes transactions where the bleed is suspected but unlocated.</p>
+        <div class="product-tags">
+          <span class="tag hot">Field Deployment</span>
+          <span class="tag hot">Boots on Ground</span>
+          <span class="tag">Primary Source Appendix</span>
+          <span class="tag">Bespoke</span>
+        </div>
+      </div>
+
+      <div class="product-item reveal">
+        <div class="product-header">
+          <span class="product-code">DM-03</span>
+          <span class="product-name">Driftmap</span>
+        </div>
+        <p class="product-desc">Actionable compression artifact. Intelligence refined to a single visual data field deployable in a negotiation or closing table presentation. G23 standard requires this format. The Driftmap is the weapon — not the report, not the footnote.</p>
+        <div class="product-tags">
+          <span class="tag hot">G23 Required</span>
+          <span class="tag">White-Label Ready</span>
+          <span class="tag">Negotiation-Grade</span>
+          <span class="tag">Visual Format</span>
+        </div>
+      </div>
+
+      <div class="product-item reveal">
+        <div class="product-header">
+          <span class="product-code">BB-12</span>
+          <span class="product-name">Benchmark Brief</span>
+        </div>
+        <p class="product-desc">Corridor-wide situational awareness. Monitors CFD amendments, utility rate shifts, new solar encumbrance filings, and zoning transitions across the Placer node network. Issued to relationship-granted recipients. Not a newsletter. Not a subscription. Intelligence is earned.</p>
+        <div class="product-tags">
+          <span class="tag hot">Relationship Access</span>
+          <span class="tag">Corridor Monitoring</span>
+          <span class="tag">TM1V Checks 3–5</span>
+          <span class="tag">Ongoing Intelligence</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOCTRINE -->
+<section id="doctrine">
+  <div class="section-header reveal">
+    <span class="section-num">05</span>
+    <h2 class="section-title">OPERATIONAL LAW</h2>
+    <span class="section-class">SOVEREIGN DRIFT DOCTRINE</span>
+  </div>
+
+  <div class="doctrine-quote reveal">
+    <p class="doctrine-text">The Sovereign Drift verification methodology strips away market noise and broker bias, leaving only <strong>decision-grade truth</strong>. Our intelligence is not merely accurate — it is resilient enough to be implanted directly into high-stakes financial decisions.</p>
+    <div class="doctrine-attribution">— Sovereign Drift Operational Doctrine, TM1V/G23 Protocol</div>
+  </div>
+
+  <div class="doctrine-laws">
+    <div class="law-card reveal">
+      <div class="law-num">I</div>
+      <div class="law-title">The Dispute Lives In The Wall</div>
+      <p class="law-body">Every transaction carries concealed debt. Our mandate is not to describe the wall — it is to see through it. CFD stacking, utility compression, solar encumbrance: these are not edge cases. They are the rule in the Placer Corridor.</p>
+    </div>
+
+    <div class="law-card reveal">
+      <div class="law-num">II</div>
+      <div class="law-title">Noise Is Discarded, Not Hedged</div>
+      <p class="law-body">Intelligence that fails the TM1V/G23 standard is not footnoted. It is quarantined. Ambiguity is labeled as an Intelligence Gap and surfaced explicitly. No inference is presented as verified fact. Ever.</p>
+    </div>
+
+    <div class="law-card reveal">
+      <div class="law-num">III</div>
+      <div class="law-title">The Temporal Boundary Is A Feature</div>
+      <p class="law-body">Intelligence is TM1V/G23 verified at the moment of extraction. Municipal environments are dynamic. This boundary is not liability hedging — it is structural honesty. It is also why ongoing corridor monitoring is not optional for serious operators.</p>
+    </div>
+
+    <div class="law-card reveal">
+      <div class="law-num">IV</div>
+      <div class="law-title">Access Is Earned, Not Purchased</div>
+      <p class="law-body">Sovereign Drift is not a subscription. It is not a newsletter. Intelligence of this grade is extended through relationship — to title principals, escrow officers, and mortgage operators who understand what decision-grade truth is worth.</p>
+    </div>
+
+    <div class="law-card reveal">
+      <div class="law-num">V</div>
+      <div class="law-title">The Verification Ledger Proves The Work</div>
+      <p class="law-body">Every Forensic Audit includes a redacted appendix showing the exhaust of the verification process: timestamped field photos, redacted primary source screenshots, cross-validation records. The recipe stays proprietary. The proof is non-negotiable.</p>
+    </div>
+
+    <div class="law-card reveal">
+      <div class="law-num">VI</div>
+      <div class="law-title">Intelligence Is The Weapon, Not The Report</div>
+      <p class="law-body">A G23-verified Driftmap gives the mortgage broker a weapon to win the deal. A title officer with a verified CFD stack can protect the escrow. The deliverable must be immediately deployable in a negotiation. Anything less is a document, not intelligence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section id="access">
+  <div class="access-label reveal">Classification: Restricted Access</div>
+  <h2 class="access-h2 reveal">REQUEST<br>CLEARANCE</h2>
+  <p class="access-sub reveal">Sovereign Drift is extended through relationship — to title principals, escrow officers, and mortgage operators operating in the Placer Corridor. State your role and your exposure. We will respond.</p>
+
+  <div class="access-form reveal">
+    <input type="email" class="access-input" placeholder="your.name@company.com">
+    <button class="access-submit">Transmit</button>
+  </div>
+
+  <div class="access-caveat reveal">Access is <span>relationship-granted</span> · Not a subscription · Not a newsletter · Response within 48h</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-mark">SOVEREIGN DRIFT</div>
+  <div class="footer-meta">
+    Placer County, California &nbsp;·&nbsp; Forensic Real Estate Intelligence &nbsp;·&nbsp; TM1V / G23 Protocol
+  </div>
+  <div class="footer-class">
+    TM1V VERIFIED<br>
+    <span style="color:var(--bone-faint);">© 2026 Sovereign Drift. All rights reserved.</span>
   </div>
 </footer>
 
 <script>
-function handleSubmit(e){e.preventDefault();alert("Inquiry transmitted. We do not confirm receipt by phone.");}
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // PRODUCT TAB SWITCHING
+  const tabs = document.querySelectorAll('.prod-tab');
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+
+  // TYPEWRITER — hero classification line
+  // Already handled via CSS animation
+
+  // COUNTER ANIMATION for sidebar metrics
+  function animateCounter(el, target, duration = 1200) {
+    let start = 0;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      el.textContent = Math.floor(progress * target) + (el.dataset.suffix || '');
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  // Animate numbers when they enter viewport
+  const metricValues = document.querySelectorAll('.metric-value, .rail-value');
+  const numObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const text = el.textContent.trim();
+        const num = parseInt(text);
+        if (!isNaN(num) && num > 0 && text.length <= 4) {
+          el.dataset.suffix = text.replace(num.toString(), '').replace(/\d/g, '');
+          animateCounter(el, num, 1000);
+        }
+        numObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  metricValues.forEach(el => numObserver.observe(el));
+
+  // NAV active state on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      const sTop = s.offsetTop - 120;
+      if (window.scrollY >= sTop) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--amber)' : '';
+    });
+  });
 </script>
 </body>
 </html>
