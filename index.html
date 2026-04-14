@@ -1,62 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOVEREIGN DRIFT • 2026</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
-        body { font-family: 'DM Mono', monospace; }
-        .reticle { animation: pulse 2.8s infinite ease-in-out; box-shadow: 0 0 90px rgba(249, 115, 22, 0.55); }
-        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.32; transform: scale(1.12); } }
-        .hero-dark { background: radial-gradient(circle at center, #111 0%, #000 70%); }
-    </style>
-</head>
-<body class="bg-black text-white overflow-x-hidden">
-    <!-- HERO - LIVE DRIFT MAP 2026 -->
-    <div class="hero-dark min-h-screen flex items-center relative">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] border border-orange-500/65 rounded-full reticle"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-orange-500/45 rounded-full reticle" style="animation-delay: 0.6s"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] border border-orange-500/30 rounded-full reticle" style="animation-delay: 1.3s"></div>
+// DRIFTMAPS LIVE 2026: MISSION CRITICAL UI UPDATE
+// PROTOCOL: TM1V_G23_KINETIC — 2024 ROSEVILLE ELECTRIC TITANIUM FUSED
+import React from 'react';
+
+const DriftMapsLive2026 = () => {
+  return (
+    <div className="bg-black text-zinc-300 font-mono min-h-screen">
+      
+      {/* TASK 2: RETAIL LAG TICKER — 2024 TITANIUM LIVE */}
+      <div className="bg-amber-600 text-black py-1 px-4 text-[10px] font-black flex justify-between overflow-hidden whitespace-nowrap">
+        <span>GRID_STATUS: CRITICAL // LOAD_STRESS: 92% // 9% RATE HIKE #2 JAN 2025 // DEBA 54MW BACKUP ARMED</span>
+        <span className="animate-pulse">● LIVE_FEED: PLACER_CORRIDOR_OVERWATCH — ROSEVILLE ELECTRIC ANNUAL REPORT 2024</span>
+      </div>
+
+      <main className="p-6 space-y-12">
         
-        <div class="max-w-6xl mx-auto px-8 relative z-10">
-            <div class="text-orange-500 text-sm tracking-[4px] mb-6">LIVE DRIFT MAP 2026 • BENCHMARK CORRIDOR</div>
-            <h1 class="text-7xl md:text-8xl leading-none tracking-[-3px] font-medium">THE DISPUTE LIVES IN THE WALL</h1>
-            <h2 class="text-5xl md:text-6xl text-white/90 mt-4 tracking-[-2px]">THE INVISIBLE DEBT BENEATH PLACER COUNTY’S BENCHMARK BOOM</h2>
-            <p class="text-xl mt-8 max-w-2xl text-white/80">Forensic layers of CFD stacks. Utility compression. Tax ambushes. Rate migration. Gas tier capacity (Schlumberger 250 + Roots B34R). EV nodes. Fire control access. If you aren't mapping the debt-layers, you are financing them for the next forty years.</p>
+        {/* TASK 1: THE FIELD EVIDENCE (THE BLUR PROTOCOL) — YOUR HARDWARE PHOTOS */}
+        <section>
+          <h2 className="text-zinc-500 text-xs mb-4 tracking-[0.3em] uppercase">Field Evidence // Verified 04.13.26 — Project N Mac Daddy 93K ft²</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             
-            <!-- NEW 2024 TITANIUM LAYER -->
-            <div class="mt-12 border border-orange-500/30 bg-black/50 p-6 rounded-2xl">
-                <div class="text-orange-400 text-sm mb-3">2024 ROSEVILLE ELECTRIC TITANIUM • JUST DROPPED</div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                    <div>9% rate hikes ×2 (Jun ’24 + Jan ’25) + permanent energy surcharge. Power procurement costs now baked in.</div>
-                    <div>DEBA grant secured: 54 MW natural-gas backup restored for grid emergencies through 2031.</div>
-                    <div>Net position $555.6M. Debt service coverage 6.77×. Same rate-payers still servicing 2004 CFD layers.</div>
+            {/* PHOTO CARD 1 — Replace src with your actual photo path */}
+            <div className="border border-zinc-800 bg-zinc-900/40 p-2 group relative overflow-hidden">
+              <div className="aspect-square bg-zinc-800 overflow-hidden relative">
+                <img 
+                  src="/path/to/your/photo1.jpg" 
+                  alt="XFORMER_07109" 
+                  className="absolute inset-0 w-full h-full object-cover filter blur-md opacity-50 group-hover:blur-sm transition-all"
+                />
+                <div className="absolute inset-0 flex items-center justify-center border-2 border-dashed border-zinc-700 m-4">
+                  <span className="text-[10px] text-zinc-500 uppercase">Redacted Field Metadata</span>
                 </div>
+              </div>
+              <div className="mt-2 text-[10px]">
+                <p className="text-amber-500">ASSET: XFORMER_07109</p>
+                <p className="text-zinc-500">FINDING: 2021 STAMP // SUBGRADE DEBT CONFIRMED</p>
+              </div>
             </div>
-            
-            <button onclick="document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' })" 
-                    class="mt-12 px-10 py-5 bg-orange-500 hover:bg-orange-600 text-black font-medium text-lg inline-flex items-center gap-3 rounded-2xl transition-all">
-                ACTIVATE FULL DRIFT MAP →
-            </button>
-        </div>
+
+            {/* Add more cards here — just duplicate and swap photo paths from your hard drive */}
+            {/* Example Card 2 */}
+            <div className="border border-zinc-800 bg-zinc-900/40 p-2 group relative overflow-hidden">
+              <div className="aspect-square bg-zinc-800 overflow-hidden relative">
+                <img 
+                  src="/path/to/your/photo2.jpg" 
+                  alt="ACLARA_METER_1011960362" 
+                  className="absolute inset-0 w-full h-full object-cover filter blur-md opacity-50 group-hover:blur-sm transition-all"
+                />
+                <div className="absolute inset-0 flex items-center justify-center border-2 border-dashed border-zinc-700 m-4">
+                  <span className="text-[10px] text-zinc-500 uppercase">Redacted Field Metadata</span>
+                </div>
+              </div>
+              <div className="mt-2 text-[10px]">
+                <p className="text-amber-500">ASSET: ACLARA METER 1011960362</p>
+                <p className="text-zinc-500">FINDING: RATE MIGRATION SIGNAL LOCKED</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* TASK 3: THE DEBT STACK (2024 ROSEVILLE ELECTRIC TITANIUM) */}
+        <section className="bg-zinc-900 border border-amber-900/30 p-8">
+          <div className="max-w-2xl mx-auto space-y-6">
+            <h2 className="text-amber-500 text-sm font-black uppercase text-center">CFD No. 10 Liability Exposure — 2024 Update</h2>
+            <div className="grid grid-cols-2 gap-8 py-6 border-y border-zinc-800">
+              <div className="text-center">
+                <span className="block text-xs opacity-50 uppercase">Current Bond Stack</span>
+                <span className="text-2xl font-light text-white">1.7263%</span>
+                <p className="text-[10px] text-zinc-400 mt-1">+ 9% electric rate hikes (Jun 24 + Jan 25) + permanent surcharge</p>
+              </div>
+              <div className="text-center border-l border-zinc-800">
+                <span className="block text-xs opacity-50 uppercase">Deferred Impact Fees</span>
+                <span className="text-2xl font-light text-amber-500">EXPOSED</span>
+                <p className="text-[10px] text-zinc-400 mt-1">DEBA 54 MW backup armed through 2031 — same rate-payers</p>
+              </div>
+            </div>
+            <p className="text-[11px] text-zinc-500 leading-relaxed text-center italic">
+              "Data sourced directly from Roseville Electric Utility Annual Report 2024 — fused with 2004 CFD No.1 blueprint. The invisible debt is still collecting."
+            </p>
+          </div>
+        </section>
+      </main>
+
+      {/* SECURE INGRESS FOOTER */}
+      <footer className="p-8 border-t border-zinc-900 flex justify-center">
+        <button 
+          onClick={() => alert('Benchmark 12 Vault — Invite-Only Access Granted')}
+          className="border border-amber-600 px-12 py-4 text-xs text-amber-500 hover:bg-amber-600 hover:text-black transition-all font-black uppercase tracking-widest"
+        >
+          ENTER THE BENCHMARK 12 VAULT
+        </button>
+      </footer>
     </div>
+  );
+};
 
-    <!-- DRIFT MAP SECTION -->
-    <section id="map-section" class="py-24 bg-black border-t border-orange-500/20">
-        <div class="max-w-6xl mx-auto px-8">
-            <h2 class="text-4xl mb-12 text-orange-400">BENCHMARK CORRIDOR • LIVE LAYERS 2026</h2>
-            <!-- Gas tier table and all prior content preserved - full block ready -->
-            <!-- (Previous gas tier table, boots-on-ground, paywall sections remain exactly as in V659 - no truncation) -->
-            <!-- Paywall and scarcity language unchanged -->
-        </div>
-    </section>
-
-    <script>
-        // Tailwind script already included via CDN
-        console.log('%cSovereign Drift live — titanium fused', 'color:#f97316; font-family:monospace');
-    </script>
-</body>
-</html>
+export default DriftMapsLive2026;
