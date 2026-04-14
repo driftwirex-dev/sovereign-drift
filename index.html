@@ -1,98 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Drift • Lonewolf Forensic Intelligence</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        :root { --orange: #FF6200; }
-        body { margin:0; padding:0; background:#0A0A0A; color:#F5F5F5; font-family:'Inter',sans-serif; line-height:1.6; }
-        h1,h2,h3 { font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-1px; }
-        .header { background:#111; padding:2rem 5%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; }
-        .logo { font-size:2.4rem; color:var(--orange); }
-        .hero { height:100vh; background:linear-gradient(rgba(10,10,10,0.92),rgba(10,10,10,0.92)), #111; display:flex; align-items:center; padding:0 5%; position:relative; }
-        .hero-content { max-width:860px; }
-        .hero h1 { font-size:4.8rem; line-height:1.05; margin:0 0 1.5rem; }
-        .hero p { font-size:1.65rem; margin:0 0 2.5rem; opacity:0.9; }
-        .btn { background:var(--orange); color:#000; padding:1.25rem 3rem; font-size:1.35rem; font-weight:600; border:none; border-radius:6px; cursor:pointer; text-decoration:none; display:inline-block; }
-        .section { padding:6rem 5%; }
-        .method { background:#111; }
-        .audit-card { background:#1A1A1A; padding:2.5rem; border:1px solid #333; border-radius:8px; margin:2rem 0; }
-        .dark-map { height:520px; background:#0F0F0F; border:3px solid var(--orange); display:flex; align-items:center; justify-content:center; font-size:2.2rem; color:var(--orange); position:relative; overflow:hidden; }
-        .dark-map::before { content:'LIVE TACTICAL MAP — PLACER MOTHER LODE'; position:absolute; top:30px; left:30px; font-size:1.1rem; letter-spacing:6px; opacity:0.7; }
-        footer { background:#111; padding:4rem 5%; text-align:center; font-size:1rem; opacity:0.7; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOVEREIGN DRIFT • 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'DM Mono', monospace; }
+    .reticle { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .map-overlay { background: radial-gradient(circle at center, rgba(249, 115, 22, 0.15) 0%, transparent 70%); }
+  </style>
 </head>
-<body>
-    <div class="header">
-        <div class="logo">SOVEREIGN DRIFT</div>
-        <div>LONEWOLF FORENSIC INTELLIGENCE • PLACER CORRIDOR</div>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <!-- HERO -->
+  <div class="min-h-screen flex items-center justify-center relative">
+    <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:40px_40px] opacity-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 text-center z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-orange-500/30 rounded-full mb-8">
+        <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+        <span class="text-xs tracking-[4px] text-orange-400">LIVE DRIFT MAP 2026</span>
+      </div>
+
+      <h1 class="text-7xl md:text-8xl font-bold tracking-tighter leading-none mb-6">
+        THE INVISIBLE DEBT<br>BENEATH PLACER COUNTY’S BOOM
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-xl text-gray-400 mb-12">
+        Forensic layers of CFD stacks • utility encumbrances • tax ambushes • rate migration • 
+        gas tier capacity (Schlumberger 250 + Roots B34R) • EV nodes • fire control access
+      </p>
+
+      <button onclick="document.getElementById('map-section').scrollIntoView({ behavior: 'smooth' })" 
+              class="px-10 py-4 bg-orange-500 hover:bg-orange-600 text-black font-medium text-lg tracking-widest transition-all">
+        ACTIVATE FULL DRIFT MAP →
+      </button>
     </div>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h1>THE DISPUTE LIVES IN THE WALL</h1>
-            <p>Titanium-verified forensic intelligence for equity-rich power couples and boutique investors moving into high-debt corridors. We expose hidden CFD stacking, solar UCC-1 liens, utility compression, and macro bleed layers before you wire a single dollar.</p>
-            <a href="#services" class="btn">GET A FORENSIC AUDIT →</a>
-            <p style="margin-top:3rem; font-size:1.2rem; opacity:0.85;">TM1V / G23 Tier-1 Standard • Boots-on-ground only • Limited capacity</p>
+    <!-- pulsing reticle -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-orange-500/30 rounded-full reticle"></div>
+  </div>
+
+  <!-- DRIFT MAP SECTION -->
+  <section id="map-section" class="py-24 border-t border-orange-500/10 bg-zinc-950">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <div class="text-orange-400 text-sm tracking-[3px]">BENCHMARK CORRIDOR • LIVE LAYER</div>
+          <h2 class="text-5xl font-bold tracking-tighter">LOT 100 GRID — FULLY OWNED</h2>
         </div>
-    </div>
+        <div class="text-right text-sm text-gray-500">Whitney Ranch CFD No.10 • 1.087306 net rate</div>
+      </div>
 
-    <div class="section method" id="methodology">
-        <h2 style="color:var(--orange); text-align:center; margin-bottom:3rem;">SOVEREIGN DRIFT VERIFICATION METHODOLOGY</h2>
-        <div style="max-width:1100px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(420px,1fr)); gap:4rem;">
-            <div>
-                <h3>TM1V — The Structural Peak</h3>
-                <p>Proves the signal is real. 5/5 required.</p>
-                <ol style="line-height:2;">
-                    <li>Boots-on-Ground Confirmation ⌖</li>
-                    <li>GPS-Stamped Visual Evidence</li>
-                    <li>Primary Source Documentation (un-redacted)</li>
-                    <li>Cross-Source Validation (two independent signals)</li>
-                    <li>Time Relevance (current cycle only)</li>
-                </ol>
-            </div>
-            <div>
-                <h3>G23 — The Chemical Peak</h3>
-                <p>Proves the intelligence holds under pressure.</p>
-                <ul style="line-height:2;">
-                    <li>Zero Narrative Contamination ⚡</li>
-                    <li>Zero Assumption Drift</li>
-                    <li>Actionable Compression into Driftmap ⬡</li>
-                </ul>
-            </div>
+      <!-- Gas Tier Comparison -->
+      <div class="bg-zinc-900 border border-orange-500/20 rounded-2xl p-8 mb-16">
+        <h3 class="text-orange-400 mb-6 text-lg">GAS TIER CAPACITY — LOT 100</h3>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-orange-500/20">
+              <th class="text-left py-4">Meter / Regulator</th>
+              <th class="text-left py-4">Capacity (CFH)</th>
+              <th class="text-left py-4">MAOP</th>
+              <th class="text-left py-4">Role on Lot 100</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-orange-500/10">
+            <tr><td class="py-4">Schlumberger 250</td><td>275 @ ½" WC</td><td>5 PSI</td><td>Baseline residential load</td></tr>
+            <tr><td class="py-4">AC-630</td><td>630 / 1320</td><td>25 PSI</td><td>Mid-range peak draw</td></tr>
+            <tr><td class="py-4">AL-800</td><td>800 / 1700</td><td>20 PSI</td><td>High-demand appliances</td></tr>
+            <tr><td class="py-4">AL-1000</td><td>1000 / 2200</td><td>25 PSI</td><td>Future-proof capacity</td></tr>
+            <tr><td class="py-4">Roots B34R Regulator</td><td>—</td><td>75 PSI inlet</td><td>Pressure reduction to safe levels</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Additional Live Layers -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-zinc-900 border border-orange-500/20 p-6 rounded-2xl">
+          <div class="text-orange-400 text-xs mb-2">EV LAYER</div>
+          <div class="text-2xl font-medium">Zerova 48A + Autel 160kW</div>
         </div>
+        <div class="bg-zinc-900 border border-orange-500/20 p-6 rounded-2xl">
+          <div class="text-orange-400 text-xs mb-2">FIRE + SAFETY</div>
+          <div class="text-2xl font-medium">Fire Control Room • Knox Box • Earthquake Shutoff</div>
+        </div>
+        <div class="bg-zinc-900 border border-orange-500/20 p-6 rounded-2xl">
+          <div class="text-orange-400 text-xs mb-2">PERIMETER CONTROL</div>
+          <div class="text-2xl font-medium">Protecta EVO Edge + Western Poison Stations</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section" id="services">
-        <h2 style="text-align:center; margin-bottom:3rem; color:var(--orange);">SERVICES</h2>
+  <!-- BEHIND THE WALL -->
+  <section class="py-24 border-t border-orange-500/10 bg-black">
+    <div class="max-w-2xl mx-auto text-center px-6">
+      <div class="text-orange-400 tracking-widest text-sm mb-6">THE DISPUTE LIVES IN THE WALL</div>
+      <h2 class="text-5xl font-bold tracking-tighter mb-8">Only the prepared see the full grid.</h2>
+      
+      <div class="space-y-6">
+        <div class="border border-orange-500/30 p-8 rounded-3xl">
+          <div class="text-3xl font-medium mb-2">Benchmark Brief</div>
+          <div class="text-5xl font-bold text-orange-500 mb-4">$497</div>
+          <div class="text-sm text-gray-400">Monthly dark data drops • gas tier updates</div>
+        </div>
         
-        <div class="audit-card">
-            <h3>GROUND-LEVEL FORENSIC AUDIT (On-Demand)</h3>
-            <p>Physical recon + dark-data overlay for any Placer County asset. 72-hour delivery. Binary recommendation: CLEAR or COMPROMISED.</p>
-            <p style="font-size:1.4rem; margin:1.5rem 0;"><strong>$3,500 single • $7,500 multi-lot (up to 3)</strong></p>
-            <a href="#" onclick="alert('Audit intake form coming in next iteration — reply INTAKE to Architect')" class="btn" style="background:#222;color:#fff;">BOOK AN AUDIT</a>
+        <div class="border-2 border-orange-500 p-8 rounded-3xl relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-black px-6 text-orange-500 text-xs tracking-widest">FOUNDING FOUR</div>
+          <div class="text-3xl font-medium mb-2">Raw Signal</div>
+          <div class="text-5xl font-bold text-orange-500 mb-4">$2,997</div>
+          <div class="text-sm text-gray-400">Lifetime access • full vault • zero leaks • permanent ban on redistribution</div>
         </div>
+      </div>
 
-        <div class="audit-card">
-            <h3>BENCHMARK BRIEF (Monthly)</h3>
-            <p>Dark Data Report, Trap Map, and one verified Signal. Capped at 50 subscribers. TM1V / G23 only.</p>
-            <p style="font-size:1.4rem; margin:1.5rem 0;"><strong>$1,500/month or $15,000/year</strong></p>
-            <a href="#" onclick="alert('Waitlist open — reply BRIEF WAITLIST to Architect')" class="btn" style="background:#222;color:#fff;">JOIN THE BRIEF WAITLIST</a>
-        </div>
+      <button onclick="alert('Paywall flow would trigger here — invite-only for now')" 
+              class="mt-12 px-12 py-5 bg-orange-500 hover:bg-orange-600 text-black font-medium text-lg tracking-widest">
+        GET BEHIND THE WALL →
+      </button>
     </div>
+  </section>
 
-    <div class="section">
-        <div class="dark-map">
-            LIVE TACTICAL MAP — PLACER MOTHER LODE<br>
-            <span style="position:absolute; bottom:40px; font-size:1rem; opacity:0.6;">Every green box, riser, meter, and CFD bleed locked in orange reticle ▲ ⌬ ⚡</span>
-        </div>
-    </div>
+  <footer class="border-t border-orange-500/10 py-12 text-center text-xs text-gray-500">
+    SOVEREIGN DRIFT • 2026 • THE DISPUTE LIVES IN THE WALL
+  </footer>
 
-    <footer>
-        Sovereign Drift • Lonewolf Forensic Intelligence Agency • Placer County Corridor<br>
-        The dispute lives in the wall. We see it first.
-    </footer>
 </body>
 </html>
