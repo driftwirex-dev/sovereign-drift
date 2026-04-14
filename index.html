@@ -1,37 +1,135 @@
-{/* FINISH BUILD LAYER — MICRO TEAM VISION */}
-<div className="mt-20 border-t border-orange-500/10 pt-16">
-  <div className="text-center mb-12">
-    <div className="inline text-orange-400 text-xs tracking-[4px]">MICRO TEAM OPERATIONAL</div>
-    <h3 className="text-4xl font-bold tracking-tighter mt-4">The map is live.<br />The acquisition path is open.</h3>
-  </div>
+export default function Home() {
+  return (
+    <div className="bg-black text-white min-h-screen font-mono overflow-hidden">
+      {/* HERO - ORIGINAL TITLE + ORANGE SATELLITE FEEL */}
+      <div className="min-h-screen flex items-center justify-center relative">
+        <div className="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:50px_50px] opacity-20" />
+        
+        <div className="max-w-7xl mx-auto px-6 text-center z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-orange-500/30 rounded-full mb-8">
+            <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+            <span className="text-xs tracking-[4px] text-orange-400">LIVE DRIFT MAP 2026</span>
+          </div>
 
-  <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-    <div className="bg-zinc-900 border border-orange-500/20 p-8 rounded-3xl">
-      <div className="text-orange-400 mb-4 text-sm">CURRENT MOMENTUM</div>
-      <ul className="space-y-6 text-left">
-        <li className="flex items-start gap-4">
-          <span className="text-2xl text-orange-500 mt-1">→</span>
-          <div>Full Lot 100 grid mapped — Schlumberger 250 baseline through AL-1000 future-proof capacity</div>
-        </li>
-        <li className="flex items-start gap-4">
-          <span className="text-2xl text-orange-500 mt-1">→</span>
-          <div>Fire control room + Knox + earthquake shutoff + poison perimeter all visible</div>
-        </li>
-        <li className="flex items-start gap-4">
-          <span className="text-2xl text-orange-500 mt-1">→</span>
-          <div>Original hero title restored — “THE INVISIBLE DEBT BENEATH PLACER COUNTY’S BOOM”</div>
-        </li>
-      </ul>
-    </div>
+          <h1 className="text-7xl md:text-8xl font-bold tracking-tighter leading-none mb-6">
+            THE INVISIBLE DEBT<br />BENEATH PLACER COUNTY’S BOOM
+          </h1>
 
-    <div className="bg-zinc-900 border border-orange-500/20 p-8 rounded-3xl">
-      <div className="text-orange-400 mb-4 text-sm">ACQUISITION PATH</div>
-      <div className="text-2xl font-medium leading-tight">
-        Bay Area migration buyers will land here and immediately see why they need to get behind the wall before the next 40-year tax ambush hits.
+          <p className="max-w-2xl mx-auto text-xl text-gray-400 mb-12">
+            Forensic layers of CFD stacks • utility encumbrances • tax ambushes • rate migration • 
+            gas tier capacity (Schlumberger 250 + Roots B34R) • EV nodes • fire control access
+          </p>
+
+          <button 
+            onClick={() => document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-10 py-4 bg-orange-500 hover:bg-orange-600 text-black font-medium text-lg tracking-widest transition-all"
+          >
+            ACTIVATE FULL DRIFT MAP →
+          </button>
+        </div>
+
+        {/* ORANGE SATELLITE RETICLE */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-orange-500/40 rounded-full animate-pulse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-orange-500/30 rounded-full animate-pulse" style={{animationDelay: '0.8s'}} />
       </div>
-      <div className="mt-8 text-sm text-gray-400">
-        Founding Four tier at $2,997 becomes the no-brainer for anyone serious about protecting equity in Placer County.
-      </div>
+
+      {/* DRIFT MAP SECTION */}
+      <section id="map-section" className="py-24 border-t border-orange-500/10 bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <div className="text-orange-400 text-sm tracking-[3px]">BENCHMARK CORRIDOR • LIVE ORANGE SATELLITE LAYER</div>
+              <h2 className="text-5xl font-bold tracking-tighter">LOT 100 GRID — FULLY OWNED</h2>
+            </div>
+            <div className="text-right text-sm text-gray-500">Whitney Ranch CFD No.10 • 1.087306 net rate</div>
+          </div>
+
+          {/* Gas Tier Table */}
+          <div className="bg-zinc-900 border border-orange-500/20 rounded-2xl p-8 mb-16">
+            <h3 className="text-orange-400 mb-6 text-lg">GAS TIER CAPACITY — LOT 100</h3>
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-orange-500/20">
+                  <th className="text-left py-4">Meter / Regulator</th>
+                  <th className="text-left py-4">Capacity (CFH)</th>
+                  <th className="text-left py-4">MAOP</th>
+                  <th className="text-left py-4">Role on Lot 100</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-orange-500/10">
+                <tr><td className="py-4">Schlumberger 250</td><td>275 @ ½" WC</td><td>5 PSI</td><td>Baseline residential load</td></tr>
+                <tr><td className="py-4">AC-630</td><td>630 / 1320</td><td>25 PSI</td><td>Mid-range peak draw</td></tr>
+                <tr><td className="py-4">AL-800</td><td>800 / 1700</td><td>20 PSI</td><td>High-demand appliances</td></tr>
+                <tr><td className="py-4">AL-1000</td><td>1000 / 2200</td><td>25 PSI</td><td>Future-proof capacity</td></tr>
+                <tr><td className="py-4">Roots B34R Regulator</td><td>—</td><td>75 PSI inlet</td><td>Pressure reduction to safe levels</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Micro Team Vision Layer */}
+          <div className="mt-20 border-t border-orange-500/10 pt-16">
+            <div className="text-center mb-12">
+              <div className="inline text-orange-400 text-xs tracking-[4px]">MICRO TEAM OPERATIONAL</div>
+              <h3 className="text-4xl font-bold tracking-tighter mt-4">The map is live.<br />The acquisition path is open.</h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <div className="bg-zinc-900 border border-orange-500/20 p-8 rounded-3xl">
+                <div className="text-orange-400 mb-4 text-sm">CURRENT MOMENTUM</div>
+                <ul className="space-y-6 text-left">
+                  <li className="flex items-start gap-4">→ Full Lot 100 grid mapped — Schlumberger 250 baseline through AL-1000 future-proof capacity</li>
+                  <li className="flex items-start gap-4">→ Fire control room + Knox + earthquake shutoff + poison perimeter all visible</li>
+                  <li className="flex items-start gap-4">→ Original hero title restored — “THE INVISIBLE DEBT BENEATH PLACER COUNTY’S BOOM”</li>
+                </ul>
+              </div>
+
+              <div className="bg-zinc-900 border border-orange-500/20 p-8 rounded-3xl">
+                <div className="text-orange-400 mb-4 text-sm">ACQUISITION PATH</div>
+                <div className="text-2xl font-medium leading-tight">
+                  Bay Area migration buyers will land here and immediately see why they need to get behind the wall before the next 40-year tax ambush hits.
+                </div>
+                <div className="mt-8 text-sm text-gray-400">
+                  Founding Four tier at $2,997 becomes the no-brainer for anyone serious about protecting equity in Placer County.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BEHIND THE WALL */}
+      <section className="py-24 border-t border-orange-500/10 bg-black">
+        <div className="max-w-2xl mx-auto text-center px-6">
+          <div className="text-orange-400 tracking-widest text-sm mb-6">THE DISPUTE LIVES IN THE WALL</div>
+          <h2 className="text-5xl font-bold tracking-tighter mb-8">Only the prepared see the full grid.</h2>
+          
+          <div className="space-y-6">
+            <div className="border border-orange-500/30 p-8 rounded-3xl">
+              <div className="text-3xl font-medium mb-2">Benchmark Brief</div>
+              <div className="text-5xl font-bold text-orange-500 mb-4">$497</div>
+              <div className="text-sm text-gray-400">Monthly dark data drops • gas tier updates</div>
+            </div>
+            
+            <div className="border-2 border-orange-500 p-8 rounded-3xl relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black px-6 text-orange-500 text-xs tracking-widest">FOUNDING FOUR</div>
+              <div className="text-3xl font-medium mb-2">Raw Signal</div>
+              <div className="text-5xl font-bold text-orange-500 mb-4">$2,997</div>
+              <div className="text-sm text-gray-400">Lifetime access • full vault • zero leaks • permanent ban on redistribution</div>
+            </div>
+          </div>
+
+          <button 
+            onClick={() => alert('Paywall flow — invite-only for now')}
+            className="mt-12 px-12 py-5 bg-orange-500 hover:bg-orange-600 text-black font-medium text-lg tracking-widest"
+          >
+            GET BEHIND THE WALL →
+          </button>
+        </div>
+      </section>
+
+      <footer className="border-t border-orange-500/10 py-12 text-center text-xs text-gray-500">
+        SOVEREIGN DRIFT • 2026 • THE DISPUTE LIVES IN THE WALL
+      </footer>
     </div>
-  </div>
-</div>
+  );
+}
