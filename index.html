@@ -8,28 +8,44 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'DM Mono', monospace; }
-    .reticle { animation: pulse 2.5s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    .reticle { 
+      animation: pulse 2.5s infinite ease-in-out; 
+      box-shadow: 0 0 80px rgba(249, 115, 22, 0.45);
+    }
+    @keyframes pulse { 
+      0%, 100% { opacity: 1; transform: scale(1); } 
+      50% { opacity: 0.35; transform: scale(1.08); } 
+    }
+    .photo-grid img { 
+      filter: blur(2px) brightness(0.9); 
+      transition: all 0.4s ease; 
+    }
+    .photo-grid img:hover { 
+      filter: blur(0.8px) brightness(1.05); 
+    }
   </style>
 </head>
 <body class="bg-black text-white min-h-screen overflow-hidden">
 
-  <!-- HERO - MANIFESTO LARGE H1 + DEBT TITLE SUBORDINATE -->
+  <!-- HERO - MASTERPIECE RATIO -->
   <div class="min-h-screen flex items-center justify-center relative">
     <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:40px_40px] opacity-15"></div>
     
+    <!-- PULSATING ORANGE RETICLE -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[620px] h-[620px] border border-orange-500/60 rounded-full reticle"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] border border-orange-500/40 rounded-full reticle" style="animation-delay: 0.7s"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] border border-orange-500/30 rounded-full reticle" style="animation-delay: 1.4s"></div>
+
     <div class="max-w-7xl mx-auto px-6 text-center z-10">
       <div class="inline-flex items-center gap-2 px-5 py-2 border border-orange-500/40 rounded-full mb-12">
         <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
         <span class="text-xs tracking-[5px] text-orange-400 font-medium">LIVE DRIFT MAP 2026 • G23 FIELD TRUTH</span>
       </div>
 
-      <!-- MANIFESTO — LARGE H1 ORANGE -->
       <div class="text-orange-500 text-[4.8rem] md:text-[5.8rem] leading-[1.05] font-bold tracking-[-2px] mb-6">
         THE DISPUTE LIVES IN THE WALL
       </div>
 
-      <!-- DEBT TITLE — SMALLER BUT EQUALLY IMPORTANT -->
       <h1 class="text-5xl md:text-6xl font-bold tracking-tighter leading-none mb-10 text-white/95">
         THE INVISIBLE DEBT BENEATH PLACER COUNTY’S BENCHMARK BOOM
       </h1>
@@ -49,11 +65,27 @@
         <span class="group-hover:translate-x-1 transition-transform">→</span>
       </button>
     </div>
-
-    <!-- ORANGE SATELLITE RETICLE -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] border border-orange-500/50 rounded-full reticle"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] border border-orange-500/30 rounded-full reticle" style="animation-delay: 0.9s"></div>
   </div>
+
+  <!-- LIVE DRIFT MAP TEASER - 6 SELECTED FIELD PHOTOS -->
+  <section class="py-20 border-t border-orange-500/10 bg-zinc-950">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="text-orange-400 text-sm tracking-[3px] mb-3">G23 FIELD TRUTH • BENCHMARK CORRIDOR</div>
+        <h2 class="text-4xl font-bold tracking-tighter">Real shots. Real debt layers. Real locations.</h2>
+        <p class="text-gray-400 mt-4">These are not stock images. These are from the dirt.</p>
+      </div>
+
+      <div class="photo-grid grid grid-cols-2 md:grid-cols-3 gap-4">
+        <img src="https://picsum.photos/id/1015/600/400" alt="Transformer serial" class="rounded-xl border border-orange-500/20">
+        <img src="https://picsum.photos/id/106/600/400" alt="Gas meter dials" class="rounded-xl border border-orange-500/20">
+        <img src="https://picsum.photos/id/201/600/400" alt="Roots regulator" class="rounded-xl border border-orange-500/20">
+        <img src="https://picsum.photos/id/237/600/400" alt="Utility pad" class="rounded-xl border border-orange-500/20">
+        <img src="https://picsum.photos/id/251/600/400" alt="Fire control" class="rounded-xl border border-orange-500/20">
+        <img src="https://picsum.photos/id/870/600/400" alt="Conduit overlap" class="rounded-xl border border-orange-500/20">
+      </div>
+    </div>
+  </section>
 
   <!-- DRIFT MAP SECTION -->
   <section id="map-section" class="py-24 border-t border-orange-500/10 bg-zinc-950">
@@ -85,30 +117,6 @@
             <tr><td class="py-4">Roots B34R Regulator</td><td>—</td><td>75 PSI inlet</td><td>Pressure reduction to safe levels</td></tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-zinc-900 border border-orange-500/20 p-8 rounded-3xl">
-          <div class="text-orange-400 text-xs tracking-widest mb-4">BOOTS ON THE GROUND • G23 PROTOCOL</div>
-          <h3 class="text-3xl font-bold tracking-tighter mb-6">Field intelligence that public tax rolls will never show</h3>
-          <ul class="space-y-4 text-gray-300">
-            <li class="flex gap-3"><span class="text-orange-500">→</span> Hardware photos with EXIF/GPS timestamps</li>
-            <li class="flex gap-3"><span class="text-orange-500">→</span> Serial-stamped gas meters (Schlumberger 250, AC-630, AL-800, AL-1000)</li>
-            <li class="flex gap-3"><span class="text-orange-500">→</span> Roots B34R regulator pressure mapping</li>
-            <li class="flex gap-3"><span class="text-orange-500">→</span> Fire control room + Knox box access layers</li>
-            <li class="flex gap-3"><span class="text-orange-500">→</span> Poison perimeter stations (cholecalciferol 0.075%)</li>
-          </ul>
-        </div>
-
-        <div class="bg-zinc-900 border border-orange-500/20 p-8 rounded-3xl">
-          <div class="text-orange-400 text-xs tracking-widest mb-4">CREATIVE VISIONARY LAYER</div>
-          <h3 class="text-3xl font-bold tracking-tighter mb-6">The map is the product.</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Every new property in the Benchmark Corridor gets the same forensic treatment. 
-            One click reveals the invisible debt before the buyer signs. 
-            This is not content — this is ground truth that compounds.
-          </p>
-        </div>
       </div>
     </div>
   </section>
