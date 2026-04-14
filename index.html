@@ -9,32 +9,25 @@
   <style>
     body { font-family: 'DM Mono', monospace; }
     .reticle { 
-      animation: pulse 2.5s infinite ease-in-out; 
-      box-shadow: 0 0 80px rgba(249, 115, 22, 0.45);
+      animation: pulse 2.8s infinite ease-in-out; 
+      box-shadow: 0 0 90px rgba(249, 115, 22, 0.55);
     }
     @keyframes pulse { 
       0%, 100% { opacity: 1; transform: scale(1); } 
-      50% { opacity: 0.35; transform: scale(1.08); } 
-    }
-    .photo-grid img { 
-      filter: blur(2px) brightness(0.9); 
-      transition: all 0.4s ease; 
-    }
-    .photo-grid img:hover { 
-      filter: blur(0.8px) brightness(1.05); 
+      50% { opacity: 0.32; transform: scale(1.12); } 
     }
   </style>
 </head>
 <body class="bg-black text-white min-h-screen overflow-hidden">
 
-  <!-- HERO - MASTERPIECE RATIO -->
+  <!-- HERO - YOUR EXACT SCREENSHOT + STRONG PULSING RETICLE -->
   <div class="min-h-screen flex items-center justify-center relative">
     <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:40px_40px] opacity-15"></div>
     
-    <!-- PULSATING ORANGE RETICLE -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[620px] h-[620px] border border-orange-500/60 rounded-full reticle"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] border border-orange-500/40 rounded-full reticle" style="animation-delay: 0.7s"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] border border-orange-500/30 rounded-full reticle" style="animation-delay: 1.4s"></div>
+    <!-- PULSATING ORANGE RETICLE - THREE LAYERS -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] border border-orange-500/65 rounded-full reticle"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-orange-500/45 rounded-full reticle" style="animation-delay: 0.6s"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] border border-orange-500/30 rounded-full reticle" style="animation-delay: 1.3s"></div>
 
     <div class="max-w-7xl mx-auto px-6 text-center z-10">
       <div class="inline-flex items-center gap-2 px-5 py-2 border border-orange-500/40 rounded-full mb-12">
@@ -67,26 +60,6 @@
     </div>
   </div>
 
-  <!-- LIVE DRIFT MAP TEASER - 6 SELECTED FIELD PHOTOS -->
-  <section class="py-20 border-t border-orange-500/10 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <div class="text-orange-400 text-sm tracking-[3px] mb-3">G23 FIELD TRUTH • BENCHMARK CORRIDOR</div>
-        <h2 class="text-4xl font-bold tracking-tighter">Real shots. Real debt layers. Real locations.</h2>
-        <p class="text-gray-400 mt-4">These are not stock images. These are from the dirt.</p>
-      </div>
-
-      <div class="photo-grid grid grid-cols-2 md:grid-cols-3 gap-4">
-        <img src="https://picsum.photos/id/1015/600/400" alt="Transformer serial" class="rounded-xl border border-orange-500/20">
-        <img src="https://picsum.photos/id/106/600/400" alt="Gas meter dials" class="rounded-xl border border-orange-500/20">
-        <img src="https://picsum.photos/id/201/600/400" alt="Roots regulator" class="rounded-xl border border-orange-500/20">
-        <img src="https://picsum.photos/id/237/600/400" alt="Utility pad" class="rounded-xl border border-orange-500/20">
-        <img src="https://picsum.photos/id/251/600/400" alt="Fire control" class="rounded-xl border border-orange-500/20">
-        <img src="https://picsum.photos/id/870/600/400" alt="Conduit overlap" class="rounded-xl border border-orange-500/20">
-      </div>
-    </div>
-  </section>
-
   <!-- DRIFT MAP SECTION -->
   <section id="map-section" class="py-24 border-t border-orange-500/10 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-6">
@@ -98,7 +71,7 @@
         <div class="text-right text-sm text-gray-500">Whitney Ranch CFD No.10 • 1.087306 net rate</div>
       </div>
 
-      <div class="bg-zinc-900 border border-orange-500/20 rounded-2xl p-8 mb-16">
+      <div class="bg-zinc-900 border border-orange-500/20 rounded-2xl p-8">
         <h3 class="text-orange-400 mb-6 text-lg">GAS TIER CAPACITY — LOT 100</h3>
         <table class="w-full text-sm">
           <thead>
